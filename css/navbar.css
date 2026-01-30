@@ -1,0 +1,556 @@
+/* =============================================
+   MANTIENDO TU ESTILO EXISTENTE
+   Solo agregando reglas para el logo de imagen
+============================================= */
+
+/* Reset y estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CAMBIO DE FUENTE: Usar 'Montserrat' en lugar de 'Poppins' */
+body {
+    font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ========== HEADER CON LOGO DE IMAGEN ========== */
+/* Estilos del Header/Navbar */
+#main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 5%;
+    /* CAMBIO: AHORA MUCHO MÁS TRANSPARENTE */
+    background-color: rgba(15, 23, 42, 0.35); /* Reducido de 0.85 a 0.35 */
+    backdrop-filter: blur(8px); /* Reducido de 12px a 8px */
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Más transparente */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Más suave */
+}
+
+/* ESTILO FIJO - NO CAMBIA CON SCROLL */
+
+/* ========== LOGO CON IMAGEN (NUEVO) ========== */
+/* Logo con imagen - reemplazando el texto */
+.logo a {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.5px;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Para mejor visibilidad */
+}
+
+/* Imagen del logo - ESTILOS NUEVOS */
+.logo-img {
+    height: 45px; /* Altura adecuada para el header */
+    width: auto; /* Mantiene proporción */
+    object-fit: contain; /* Asegura que toda la imagen sea visible */
+    transition: all 0.3s ease;
+    filter: brightness(1.05); /* Ligeramente más brillante para contraste */
+}
+
+/* Efecto hover para el logo de imagen */
+.logo a:hover .logo-img {
+    transform: translateY(-2px);
+    filter: brightness(1.15) drop-shadow(0 2px 4px rgba(96, 165, 250, 0.3));
+}
+
+/* Si quieres mantener el texto junto a la imagen (opcional) */
+.logo-text {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: white;
+    margin-left: 10px;
+    letter-spacing: -0.5px;
+}
+
+.logo-text span {
+    color: #60a5fa; /* Azul más claro para contraste con fondo transparente */
+    font-weight: 800;
+}
+
+/* ========== MENÚ DE NAVEGACIÓN (MANTIENDO TU ESTILO) ========== */
+/* Menú de navegación con nueva fuente */
+.nav-menu {
+    display: flex;
+    list-style: none;
+}
+
+.nav-item {
+    margin-left: 28px;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.95); /* Más visible */
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
+    border-radius: 12px;
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.3px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Para mejor visibilidad */
+}
+
+.nav-link:hover {
+    color: #ffffff;
+    background-color: rgba(59, 130, 246, 0.2); /* Más transparente */
+    transform: translateY(-2px);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.nav-link.active {
+    color: #ffffff;
+    background-color: rgba(59, 130, 246, 0.15); /* Más transparente */
+    font-weight: 600;
+}
+
+.nav-link.active::before {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 18px;
+    right: 18px;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.8), rgba(96, 165, 250, 0.8)); /* Más transparente */
+    border-radius: 3px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 0.5; }
+}
+
+/* ========== MENÚ HAMBURGUESA (MANTIENDO TU ESTILO) ========== */
+/* Menú hamburguesa (para móviles) */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    z-index: 1001;
+    background: rgba(59, 130, 246, 0.15); /* Más transparente */
+    border-radius: 8px;
+    padding: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hamburger:hover {
+    background: rgba(59, 130, 246, 0.25);
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: rgba(255, 255, 255, 0.95); /* Más visible */
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
+
+/* ========== HERO SECTION (MANTIENDO TU ESTILO) ========== */
+/* Hero Section con fuente actualizada */
+.hero-section {
+    height: 100vh;
+    background: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.3)), /* Más transparente */
+                url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 400;
+    line-height: 1.7;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.scroll-indicator {
+    margin-top: 60px;
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator i {
+    font-size: 2.2rem;
+    color: #60a5fa;
+    background: rgba(255, 255, 255, 0.08); /* Más transparente */
+    padding: 15px;
+    border-radius: 50%;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-15px);
+    }
+    60% {
+        transform: translateY(-8px);
+    }
+}
+
+/* ========== SECCIONES DE CONTENIDO (MANTIENDO TU ESTILO) ========== */
+/* Secciones de contenido con nueva fuente */
+.content-section {
+    padding: 100px 0;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.content-section h2 {
+    font-size: 2.6rem;
+    margin-bottom: 30px;
+    color: #0f172a;
+    position: relative;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.content-section h2::after {
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 5px;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    bottom: -12px;
+    left: 0;
+    border-radius: 5px;
+}
+
+.content-section p {
+    font-size: 1.15rem;
+    margin-bottom: 20px;
+    color: #475569;
+    font-weight: 400;
+    line-height: 1.8;
+}
+
+.content-section.alt {
+    background-color: #f8fafc;
+}
+
+.spacer {
+    height: 300px;
+}
+
+/* Efecto para mejor visibilidad del navbar sobre contenido claro */
+.content-section:first-of-type {
+    margin-top: 80px;
+    padding-top: 120px;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+/* Tablets */
+@media screen and (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    
+    .nav-item {
+        margin-left: 20px;
+    }
+    
+    .content-section h2 {
+        font-size: 2.3rem;
+    }
+    
+    /* Logo en tablets */
+    .logo-img {
+        height: 40px;
+    }
+}
+
+/* Móviles */
+@media screen and (max-width: 768px) {
+    /* Mostrar hamburguesa */
+    .hamburger {
+        display: block;
+    }
+    
+    /* Animación del botón hamburguesa cuando está activo */
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    /* Menú para móviles con fondo más transparente */
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        flex-direction: column;
+        background-color: rgba(15, 23, 42, 0.92); /* Más transparente */
+        backdrop-filter: blur(15px); /* Reducido */
+        -webkit-backdrop-filter: blur(15px);
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        padding-top: 100px;
+        justify-content: flex-start;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-item {
+        margin: 12px 0;
+    }
+    
+    .nav-link {
+        font-size: 1.2rem;
+        justify-content: center;
+        padding: 16px 30px;
+        color: rgba(255, 255, 255, 0.95);
+        border-radius: 12px;
+        margin: 0 25px;
+        font-weight: 500;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+    
+    .nav-link:hover {
+        color: #ffffff;
+        background-color: rgba(59, 130, 246, 0.2);
+        transform: translateY(-2px);
+    }
+    
+    .nav-link.active {
+        color: #ffffff;
+        background-color: rgba(59, 130, 246, 0.25);
+    }
+    
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .navbar {
+        padding: 15px 5%;
+        background-color: rgba(15, 23, 42, 0.45); /* Más transparente en móviles */
+    }
+    
+    /* Logo en móviles */
+    .logo-img {
+        height: 38px;
+    }
+}
+
+/* Móviles pequeños */
+@media screen and (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.9rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.05rem;
+    }
+    
+    .navbar {
+        padding: 12px 5%;
+        background-color: rgba(15, 23, 42, 0.4); /* Más transparente */
+    }
+    
+    .nav-link {
+        font-size: 1.15rem;
+        padding: 14px 25px;
+    }
+    
+    /* Logo en móviles pequeños */
+    .logo-img {
+        height: 35px;
+    }
+    
+    .content-section h2 {
+        font-size: 2rem;
+    }
+    
+    .content-section p {
+        font-size: 1.05rem;
+    }
+}
+
+/* ========== ANIMACIONES Y EFECTOS (MANTIENDO TU ESTILO) ========== */
+/* Animación de entrada para el navbar */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+#main-header {
+    animation: slideDown 0.6s ease-out;
+}
+
+/* Efecto de transición suave para los enlaces */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 50%;
+    background-color: rgba(96, 165, 250, 0.8); /* Más transparente */
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: calc(100% - 36px);
+}
+
+/* Efecto adicional para el logo en hover */
+.logo::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: linear-gradient(90deg, #60a5fa, #93c5fd);
+    transition: width 0.3s ease;
+}
+
+.logo:hover::after {
+    width: 100%;
+}
+
+/* Ajustes para mejor visibilidad sobre fondos variados */
+.navbar {
+    /* Sombras de texto para mejor contraste */
+    --text-shadow-dark: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    --text-shadow-light: 1px 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.logo a,
+.nav-link {
+    text-shadow: var(--text-shadow-dark);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    text-shadow: var(--text-shadow-dark), var(--text-shadow-light);
+}
+
+/* ========== AJUSTES ESPECÍFICOS PARA DIFERENTES TIPOS DE LOGO ========== */
+
+/* Si tu logo tiene fondo blanco */
+.logo-img.white-bg {
+    background-color: white;
+    padding: 5px;
+    border-radius: 6px;
+}
+
+/* Si tu logo es muy ancho */
+.logo-img.wide {
+    max-width: 180px;
+    height: auto;
+}
+
+/* Si tu logo es muy alto */
+.logo-img.tall {
+    max-height: 50px;
+    width: auto;
+}
+
+/* Para logos con colores muy oscuros */
+.logo-img.dark-logo {
+    filter: brightness(1.15) contrast(1.1);
+}
+
+/* Para logos con colores muy claros */
+.logo-img.light-logo {
+    filter: brightness(0.95) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+/* Para asegurar que la imagen se cargue correctamente */
+.logo-img {
+    display: block;
+    max-width: 100%;
+}

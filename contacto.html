@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | AVENTURA TRAVEL</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/contacto.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="icon" type="image/x-icon" href="imagenes/favicon.ico">
+</head>
+<body>
+
+        <!-- Header/Navbar actualizado -->
+ 
+
+    <!-- Hero Section Contacto -->
+    <section class="contact-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Contacta con Nosotros</h1>
+                <p class="hero-subtitle">Estamos aquí para hacer realidad tu próxima aventura</p>
+                <div class="hero-divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-icon">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <div class="divider-line"></div>
+                </div>
+                <p class="hero-description">
+                    Nuestro equipo de expertos está listo para asesorarte y crear la experiencia de viaje perfecta para ti.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Principal de Contacto -->
+    <main class="contact-main">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Formulario de Contacto -->
+                <div class="contact-form-container">
+                    <div class="form-header">
+                        <h2><i class="fas fa-paper-plane"></i> Envíanos un Mensaje</h2>
+                        <p>Completa el formulario y te contactaremos en menos de 24 horas.</p>
+                    </div>
+
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">
+                                <i class="fas fa-user"></i> Nombre Completo
+                            </label>
+                            <input type="text" id="name" name="name" placeholder="Ingresa tu nombre completo" required>
+                            <div class="error-message" id="nameError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">
+                                <i class="fas fa-envelope"></i> Correo Electrónico
+                            </label>
+                            <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+                            <div class="error-message" id="emailError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">
+                                <i class="fas fa-phone"></i> Teléfono
+                            </label>
+                            <input type="tel" id="phone" name="phone" placeholder="+51 987 654 321">
+                            <div class="error-message" id="phoneError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="destination">
+                                <i class="fas fa-map-marker-alt"></i> Destino de Interés
+                            </label>
+                            <select id="destination" name="destination">
+                                <option value="">Selecciona un destino</option>
+                                <option value="cusco">Cusco y Machu Picchu</option>
+                                <option value="arequipa">Arequipa y Cañón del Colca</option>
+                                <option value="puno">Puno y Lago Titicaca</option>
+                                <option value="lima">Lima y Costa Peruana</option>
+                                <option value="selva">Selva Amazónica</option>
+                                <option value="norte">Norte del Perú</option>
+                                <option value="sur">Sur Andino</option>
+                                <option value="personalizado">Itinerario Personalizado</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="travelers">
+                                <i class="fas fa-users"></i> Número de Viajeros
+                            </label>
+                            <div class="travelers-selector">
+                                <button type="button" class="traveler-btn minus" data-action="decrease">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <input type="number" id="travelers" name="travelers" value="1" min="1" max="20" readonly>
+                                <button type="button" class="traveler-btn plus" data-action="increase">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group date-group">
+                            <label for="travelDate">
+                                <i class="fas fa-calendar-alt"></i> Fecha Tentativa de Viaje
+                            </label>
+                            <input type="date" id="travelDate" name="travelDate">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">
+                                <i class="fas fa-comment-dots"></i> Tu Mensaje
+                            </label>
+                            <textarea id="message" name="message" rows="5" placeholder="Cuéntanos sobre tu viaje ideal, preferencias, presupuesto, etc..." required></textarea>
+                            <div class="error-message" id="messageError"></div>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="newsletter" name="newsletter" checked>
+                            <label for="newsletter">Deseo recibir ofertas exclusivas y novedades sobre destinos.</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-submit">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Enviar Mensaje</span>
+                            <div class="btn-hover-effect"></div>
+                        </button>
+
+                        <div class="form-footer">
+                            <p><i class="fas fa-shield-alt"></i> Tu información está protegida y no será compartida.</p>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Información de Contacto -->
+                <div class="contact-info-container">
+                    <!-- Tarjetas de Información -->
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <div class="card-icon">
+                                <i class="fas fa-phone-volume"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Llamadas y WhatsApp</h3>
+                                <p>+51 987 654 321</p>
+                                <p>+51 987 654 322</p>
+                                <a href="https://wa.me/51987654321" class="whatsapp-link" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Chatear por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="card-icon">
+                                <i class="fas fa-envelope-open-text"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Correo Electrónico</h3>
+                                <p>info@aventuratravel.com</p>
+                                <p>reservas@aventuratravel.com</p>
+                                <p>soporte@aventuratravel.com</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="card-icon">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Oficina Central</h3>
+                                <p>Av. El Sol 123, Cusco, Perú</p>
+                                <p>Lun - Vie: 9:00 AM - 6:00 PM</p>
+                                <p>Sáb: 9:00 AM - 1:00 PM</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="card-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Horario de Atención</h3>
+                                <p>Lunes a Viernes: 9am - 6pm</p>
+                                <p>Sábados: 9am - 1pm</p>
+                                <p>Emergencias: 24/7</p>
+                            </div>
+                        </div>
+                    </div>
+
+                  <!-- Mapa -->
+<div class="map-container">
+    <h3><i class="fas fa-map"></i> Nuestra Ubicación</h3>
+    <div class="map-placeholder">
+        <!-- Reemplaza esto con tu iframe de Google Maps -->
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3882.032252194531!2d-71.97713012464977!3d-13.517070487314175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x916dd60c7976ffed%3A0x5d5e6b1b0e8e5b0f!2sAv.%20El%20Sol%2C%20Cusco%2C%20Per%C3%BA!5e0!3m2!1ses-419!2spe!4v1700000000000!5m2!1ses-419!2spe"
+            width="100%" 
+            height="300" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        
+        <div class="map-overlay">
+            <i class="fas fa-map-pin"></i>
+            <p>Av. El Sol 123, Cusco, Perú</p>
+        </div>
+        
+        <div class="map-fallback">
+            <p>Mapa de nuestra ubicación en Cusco</p>
+            <a href="https://goo.gl/maps/ejemplo" target="_blank" class="btn-map">
+                <i class="fas fa-external-link-alt"></i>
+                Ver en Google Maps
+            </a>
+        </div>
+    </div>
+</div>
+
+                    <!-- Redes Sociales -->
+                    <div class="social-section">
+                        <h3><i class="fas fa-hashtag"></i> Síguenos en Redes</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                <span>Facebook</span>
+                            </a>
+                            <a href="#" class="social-link instagram">
+                                <i class="fab fa-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="#" class="social-link twitter">
+                                <i class="fab fa-twitter"></i>
+                                <span>Twitter</span>
+                            </a>
+                            <a href="#" class="social-link youtube">
+                                <i class="fab fa-youtube"></i>
+                                <span>YouTube</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+<!-- ========== FAQ SECTION (Mismo diseño que index) ========== -->
+<section class="faq-section" id="faq">
+    <!-- CAMBIO: Usa .container en lugar de .faq-container -->
+    <div class="container">
+        <!-- Encabezado de la sección -->
+        <div class="faq-header">
+            <span class="section-subtitle">¿Tienes dudas?</span>
+            <h2 class="section-title">
+                <span class="title-line">Preguntas</span>
+                <span class="title-line accent">Frecuentes</span>
+            </h2>
+            <p class="section-description">
+                Resolvemos las inquietudes más comunes de nuestros viajeros para que 
+                puedas planificar tu aventura con total tranquilidad.
+            </p>
+        </div>
+        
+        <!-- Contenido principal -->
+        <div class="faq-content">
+            <!-- Columna izquierda - Categorías -->
+            <div class="faq-categories">
+                <div class="categories-header">
+                    <h3><i class="fas fa-filter"></i> Categorías</h3>
+                    <p>Filtra por tema de tu interés</p>
+                </div>
+                
+                <div class="categories-list">
+                    <button class="category-btn active" data-category="all">
+                        <i class="fas fa-globe-americas"></i>
+                        <span>Todas las preguntas</span>
+                        <span class="category-count">8</span>
+                    </button>
+                    
+                    <button class="category-btn" data-category="booking">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Reservas y Pagos</span>
+                        <span class="category-count">3</span>
+                    </button>
+                    
+                    <button class="category-btn" data-category="contact">
+                        <i class="fas fa-comments"></i>
+                        <span>Contacto y Soporte</span>
+                        <span class="category-count">3</span>
+                    </button>
+                    
+                    <button class="category-btn" data-category="general">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Información General</span>
+                        <span class="category-count">2</span>
+                    </button>
+                </div>
+                
+                <!-- Contacto rápido -->
+                <div class="quick-contact">
+                    <h4><i class="fas fa-question-circle"></i> ¿No encuentras tu respuesta?</h4>
+                    <p>Estamos aquí para ayudarte</p>
+                    <div class="contact-options">
+                        <a href="https://wa.me/51987654321" class="contact-option whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                        <a href="mailto:info@aventuratravel.com" class="contact-option email">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Columna derecha - Preguntas y respuestas -->
+            <div class="faq-questions">
+                <!-- Grupo 1: Todas las preguntas (se muestra por defecto) -->
+                <div class="faq-group active" data-category="all">
+                    <h3 class="group-title">
+                        <i class="fas fa-globe-americas"></i>
+                        <span>Todas las Preguntas</span>
+                    </h3>
+                    
+                    <div class="faq-items">
+                        <!-- Pregunta 1 - Contacto -->
+                        <div class="faq-item" data-categories="contact">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Cuál es el tiempo de respuesta de las consultas?</h4>
+                                    <p>Tiempo de respuesta y atención al cliente</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Nuestros tiempos de respuesta varían según el canal:</p>
+                                <ul>
+                                    <li><strong>WhatsApp:</strong> Respuesta inmediata en horario laboral (9am - 6pm)</li>
+                                    <li><strong>Email:</strong> Respuesta en menos de 24 horas hábiles</li>
+                                    <li><strong>Formulario web:</strong> Confirmación automática y respuesta en 24 horas</li>
+                                    <li><strong>Llamadas telefónicas:</strong> Atención inmediata en horario de oficina</li>
+                                </ul>
+                                <p>Para emergencias, disponemos de un número 24/7 disponible en nuestro WhatsApp.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Pregunta 2 - Reservas -->
+                        <div class="faq-item" data-categories="booking">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Cómo puedo hacer una reserva o consulta?</h4>
+                                    <p>Proceso de reserva y consultas</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Puedes contactarnos de varias formas:</p>
+                                <ol>
+                                    <li><strong>Formulario web:</strong> Completa el formulario de contacto y te llamaremos</li>
+                                    <li><strong>WhatsApp:</strong> Envíanos un mensaje al +51 987 654 321</li>
+                                    <li><strong>Email:</strong> Escribe a info@aventuratravel.com</li>
+                                    <li><strong>Teléfono:</strong> Llámanos al mismo número de WhatsApp</li>
+                                    <li><strong>Oficina:</strong> Visítanos en Av. El Sol 123, Cusco</li>
+                                </ol>
+                                <p>Te recomendamos usar el formulario web para consultas detalladas que requieran itinerarios personalizados.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Pregunta 3 - Contacto -->
+                        <div class="faq-item" data-categories="contact">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Tienen oficinas físicas?</h4>
+                                    <p>Ubicaciones y horarios de atención</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Sí, tenemos oficinas en las siguientes ubicaciones:</p>
+                                <div class="office-list">
+                                    <div class="office-item">
+                                        <h5><i class="fas fa-map-marker-alt"></i> Oficina Principal - Cusco</h5>
+                                        <p>Av. El Sol 123, Cusco, Perú</p>
+                                        <p><strong>Horario:</strong> Lun-Vie 9:00 AM - 6:00 PM | Sáb 9:00 AM - 1:00 PM</p>
+                                    </div>
+                                    <div class="office-item">
+                                        <h5><i class="fas fa-map-marker-alt"></i> Oficina - Lima</h5>
+                                        <p>Av. Larco 456, Miraflores, Lima, Perú</p>
+                                        <p><strong>Horario:</strong> Lun-Vie 10:00 AM - 7:00 PM</p>
+                                    </div>
+                                </div>
+                                <p>Ambas oficinas cuentan con estacionamiento y wifi gratuitos para nuestros clientes.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Pregunta 4 - General -->
+                        <div class="faq-item" data-categories="general">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Es seguro viajar al Perú?</h4>
+                                    <p>Información de seguridad para turistas</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>El Perú es un destino seguro para turistas. Nuestras recomendaciones:</p>
+                                <ul>
+                                    <li><strong>Zonas turísticas:</strong> Generalmente seguras con presencia policial</li>
+                                    <li><strong>Precauciones básicas:</strong> Como en cualquier gran ciudad del mundo</li>
+                                    <li><strong>Guiados:</strong> Siempre con guías certificados en áreas conocidas</li>
+                                    <li><strong>Transporte:</strong> Usar servicios autorizados</li>
+                                </ul>
+                                <p>Proporcionamos briefing de seguridad al inicio de cada tour y actualizaciones 
+                                sobre áreas específicas si es necesario.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Pregunta 5 - Reservas -->
+                        <div class="faq-item" data-categories="booking">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Qué métodos de pago aceptan?</h4>
+                                    <p>Opciones de pago disponibles</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Aceptamos múltiples métodos de pago para tu comodidad:</p>
+                                <ul>
+                                    <li><strong>Tarjetas de crédito/débito:</strong> Visa, Mastercard, American Express</li>
+                                    <li><strong>Transferencia bancaria:</strong> A cuentas en soles o dólares</li>
+                                    <li><strong>PayPal:</strong> Para pagos internacionales</li>
+                                    <li><strong>Yape/Plin:</strong> Para pagos rápidos en Perú</li>
+                                    <li><strong>Efectivo:</strong> En nuestras oficinas en Cusco y Lima</li>
+                                    <li><strong>Western Union:</strong> Para envíos internacionales</li>
+                                </ul>
+                                <p>Ofrecemos planes de pago flexibles y seguro de cancelación opcional.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Pregunta 6 - Contacto -->
+                        <div class="faq-item" data-categories="contact">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Tienen soporte en otros idiomas?</h4>
+                                    <p>Atención multilingüe</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>¡Sí! Nuestro equipo habla varios idiomas:</p>
+                                <div class="languages-grid">
+                                    <div class="language-item">
+                                        <span class="language-flag">🇪🇸</span>
+                                        <span class="language-name">Español</span>
+                                        <span class="language-level">Nativo</span>
+                                    </div>
+                                    <div class="language-item">
+                                        <span class="language-flag">🇺🇸</span>
+                                        <span class="language-name">Inglés</span>
+                                        <span class="language-level">Avanzado</span>
+                                    </div>
+                                    <div class="language-item">
+                                        <span class="language-flag">🇫🇷</span>
+                                        <span class="language-name">Francés</span>
+                                        <span class="language-level">Intermedio</span>
+                                    </div>
+                                    <div class="language-item">
+                                        <span class="language-flag">🇩🇪</span>
+                                        <span class="language-name">Alemán</span>
+                                        <span class="language-level">Básico</span>
+                                    </div>
+                                    <div class="language-item">
+                                        <span class="language-flag">🇧🇷</span>
+                                        <span class="language-name">Portugués</span>
+                                        <span class="language-level">Intermedio</span>
+                                    </div>
+                                    <div class="language-item">
+                                        <span class="language-flag">🇮🇹</span>
+                                        <span class="language-name">Italiano</span>
+                                        <span class="language-level">Básico</span>
+                                    </div>
+                                </div>
+                                <p>Si necesitas soporte en un idioma específico, indícanoslo al contactarnos y asignaremos un especialista.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Pregunta 7 - Reservas -->
+                        <div class="faq-item" data-categories="booking">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Cuál es la política de cancelación?</h4>
+                                    <p>Condiciones para cambios y cancelaciones</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Nuestra política de cancelación es flexible:</p>
+                                <ul>
+                                    <li><strong>30+ días antes:</strong> 100% reembolso</li>
+                                    <li><strong>15-29 días antes:</strong> 80% reembolso</li>
+                                    <li><strong>7-14 días antes:</strong> 50% reembolso</li>
+                                    <li><strong>3-6 días antes:</strong> 30% reembolso</li>
+                                    <li><strong>Menos de 3 días:</strong> No reembolsable</li>
+                                </ul>
+                                <p><strong>Excepciones:</strong> Para casos de fuerza mayor (enfermedad comprobada, desastres naturales) evaluamos cada situación particular.</p>
+                                <p>Ofrecemos la opción de cambiar fechas sin costo hasta 15 días antes.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Pregunta 8 - General -->
+                        <div class="faq-item" data-categories="general">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Necesito visa para viajar a Perú?</h4>
+                                    <p>Requisitos de documentación para turistas</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Los requisitos varían según tu nacionalidad:</p>
+                                <ul>
+                                    <li><strong>América:</strong> La mayoría de países no requieren visa (hasta 90-180 días)</li>
+                                    <li><strong>Europa:</strong> No se requiere visa para estancias turísticas cortas</li>
+                                    <li><strong>Asia/Africa:</strong> Algunos países requieren visa, otros no</li>
+                                </ul>
+                                <p><strong>Requisitos generales:</strong></p>
+                                <ol>
+                                    <li>Pasaporte válido por al menos 6 meses</li>
+                                    <li>Boleto de salida del país</li>
+                                    <li>Recursos económicos suficientes para la estadía</li>
+                                    <li>Seguro de viaje (recomendado, no obligatorio)</li>
+                                </ol>
+                                <p><strong>Importante:</strong> Los requisitos pueden cambiar. Te recomendamos verificar en el consulado peruano de tu país.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grupo 2: Reservas y Pagos -->
+                <div class="faq-group" data-category="booking">
+                    <h3 class="group-title">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Reservas y Pagos</span>
+                    </h3>
+                    
+                    <div class="faq-items">
+                        <!-- Pregunta 2 del grupo all -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Cómo puedo hacer una reserva o consulta?</h4>
+                                    <p>Proceso de reserva y consultas</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Puedes contactarnos de varias formas:</p>
+                                <ol>
+                                    <li><strong>Formulario web:</strong> Completa el formulario de contacto y te llamaremos</li>
+                                    <li><strong>WhatsApp:</strong> Envíanos un mensaje al +51 987 654 321</li>
+                                    <li><strong>Email:</strong> Escribe a info@aventuratravel.com</li>
+                                    <li><strong>Teléfono:</strong> Llámanos al mismo número de WhatsApp</li>
+                                    <li><strong>Oficina:</strong> Visítanos en Av. El Sol 123, Cusco</li>
+                                </ol>
+                                <p>Te recomendamos usar el formulario web para consultas detalladas que requieran itinerarios personalizados.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Pregunta 5 del grupo all -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Qué métodos de pago aceptan?</h4>
+                                    <p>Opciones de pago disponibles</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Aceptamos múltiples métodos de pago para tu comodidad:</p>
+                                <ul>
+                                    <li><strong>Tarjetas de crédito/débito:</strong> Visa, Mastercard, American Express</li>
+                                    <li><strong>Transferencia bancaria:</strong> A cuentas en soles o dólares</li>
+                                    <li><strong>PayPal:</strong> Para pagos internacionales</li>
+                                    <li><strong>Yape/Plin:</strong> Para pagos rápidos en Perú</li>
+                                    <li><strong>Efectivo:</strong> En nuestras oficinas en Cusco y Lima</li>
+                                    <li><strong>Western Union:</strong> Para envíos internacionales</li>
+                                </ul>
+                                <p>Ofrecemos planes de pago flexibles y seguro de cancelación opcional.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Pregunta 7 del grupo all -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Cuál es la política de cancelación?</h4>
+                                    <p>Condiciones para cambios y cancelaciones</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Nuestra política de cancelación es flexible:</p>
+                                <ul>
+                                    <li><strong>30+ días antes:</strong> 100% reembolso</li>
+                                    <li><strong>15-29 días antes:</strong> 80% reembolso</li>
+                                    <li><strong>7-14 días antes:</strong> 50% reembolso</li>
+                                    <li><strong>3-6 días antes:</strong> 30% reembolso</li>
+                                    <li><strong>Menos de 3 días:</strong> No reembolsable</li>
+                                </ul>
+                                <p><strong>Excepciones:</strong> Para casos de fuerza mayor (enfermedad comprobada, desastres naturales) evaluamos cada situación particular.</p>
+                                <p>Ofrecemos la opción de cambiar fechas sin costo hasta 15 días antes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grupo 3: Contacto y Soporte -->
+                <div class="faq-group" data-category="contact">
+                    <h3 class="group-title">
+                        <i class="fas fa-comments"></i>
+                        <span>Contacto y Soporte</span>
+                    </h3>
+                    
+                    <div class="faq-items">
+                        <!-- Pregunta 1 del grupo all -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Cuál es el tiempo de respuesta de las consultas?</h4>
+                                    <p>Tiempo de respuesta y atención al cliente</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Nuestros tiempos de respuesta varían según el canal:</p>
+                                <ul>
+                                    <li><strong>WhatsApp:</strong> Respuesta inmediata en horario laboral (9am - 6pm)</li>
+                                    <li><strong>Email:</strong> Respuesta en menos de 24 horas hábiles</li>
+                                    <li><strong>Formulario web:</strong> Confirmación automática y respuesta en 24 horas</li>
+                                    <li><strong>Llamadas telefónicas:</strong> Atención inmediata en horario de oficina</li>
+                                </ul>
+                                <p>Para emergencias, disponemos de un número 24/7 disponible en nuestro WhatsApp.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Pregunta 3 del grupo all -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Tienen oficinas físicas?</h4>
+                                    <p>Ubicaciones y horarios de atención</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Sí, tenemos oficinas en las siguientes ubicaciones:</p>
+                                <div class="office-list">
+                                    <div class="office-item">
+                                        <h5><i class="fas fa-map-marker-alt"></i> Oficina Principal - Cusco</h5>
+                                        <p>Av. El Sol 123, Cusco, Perú</p>
+                                        <p><strong>Horario:</strong> Lun-Vie 9:00 AM - 6:00 PM | Sáb 9:00 AM - 1:00 PM</p>
+                                    </div>
+                                    <div class="office-item">
+                                        <h5><i class="fas fa-map-marker-alt"></i> Oficina - Lima</h5>
+                                        <p>Av. Larco 456, Miraflores, Lima, Perú</p>
+                                        <p><strong>Horario:</strong> Lun-Vie 10:00 AM - 7:00 PM</p>
+                                    </div>
+                                </div>
+                                <p>Ambas oficinas cuentan con estacionamiento y wifi gratuitos para nuestros clientes.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Pregunta 6 del grupo all -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Tienen soporte en otros idiomas?</h4>
+                                    <p>Atención multilingüe</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>¡Sí! Nuestro equipo habla varios idiomas:</p>
+                                <div class="languages-grid">
+                                    <div class="language-item">
+                                        <span class="language-flag">🇪🇸</span>
+                                        <span class="language-name">Español</span>
+                                        <span class="language-level">Nativo</span>
+                                    </div>
+                                    <div class="language-item">
+                                        <span class="language-flag">🇺🇸</span>
+                                        <span class="language-name">Inglés</span>
+                                        <span class="language-level">Avanzado</span>
+                                    </div>
+                                    <div class="language-item">
+                                        <span class="language-flag">🇫🇷</span>
+                                        <span class="language-name">Francés</span>
+                                        <span class="language-level">Intermedio</span>
+                                    </div>
+                                    <div class="language-item">
+                                        <span class="language-flag">🇩🇪</span>
+                                        <span class="language-name">Alemán</span>
+                                        <span class="language-level">Básico</span>
+                                    </div>
+                                    <div class="language-item">
+                                        <span class="language-flag">🇧🇷</span>
+                                        <span class="language-name">Portugués</span>
+                                        <span class="language-level">Intermedio</span>
+                                    </div>
+                                    <div class="language-item">
+                                        <span class="language-flag">🇮🇹</span>
+                                        <span class="language-name">Italiano</span>
+                                        <span class="language-level">Básico</span>
+                                    </div>
+                                </div>
+                                <p>Si necesitas soporte en un idioma específico, indícanoslo al contactarnos y asignaremos un especialista.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grupo 4: Información General -->
+                <div class="faq-group" data-category="general">
+                    <h3 class="group-title">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Información General</span>
+                    </h3>
+                    
+                    <div class="faq-items">
+                        <!-- Pregunta 4 del grupo all -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Es seguro viajar al Perú?</h4>
+                                    <p>Información de seguridad para turistas</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>El Perú es un destino seguro para turistas. Nuestras recomendaciones:</p>
+                                <ul>
+                                    <li><strong>Zonas turísticas:</strong> Generalmente seguras con presencia policial</li>
+                                    <li><strong>Precauciones básicas:</strong> Como en cualquier gran ciudad del mundo</li>
+                                    <li><strong>Guiados:</strong> Siempre con guías certificados en áreas conocidas</li>
+                                    <li><strong>Transporte:</strong> Usar servicios autorizados</li>
+                                </ul>
+                                <p>Proporcionamos briefing de seguridad al inicio de cada tour y actualizaciones 
+                                sobre áreas específicas si es necesario.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Pregunta 8 del grupo all -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Necesito visa para viajar a Perú?</h4>
+                                    <p>Requisitos de documentación para turistas</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Los requisitos varían según tu nacionalidad:</p>
+                                <ul>
+                                    <li><strong>América:</strong> La mayoría de países no requieren visa (hasta 90-180 días)</li>
+                                    <li><strong>Europa:</strong> No se requiere visa para estancias turísticas cortas</li>
+                                    <li><strong>Asia/Africa:</strong> Algunos países requieren visa, otros no</li>
+                                </ul>
+                                <p><strong>Requisitos generales:</strong></p>
+                                <ol>
+                                    <li>Pasaporte válido por al menos 6 meses</li>
+                                    <li>Boleto de salida del país</li>
+                                    <li>Recursos económicos suficientes para la estadía</li>
+                                    <li>Seguro de viaje (recomendado, no obligatorio)</li>
+                                </ol>
+                                <p><strong>Importante:</strong> Los requisitos pueden cambiar. Te recomendamos verificar en el consulado peruano de tu país.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CTA adicional -->
+        <div class="faq-cta">
+            <div class="cta-content">
+                <h3><i class="fas fa-comments"></i> ¿Tienes otra pregunta?</h3>
+                <p>No dudes en contactarnos. Nuestro equipo responderá en menos de 24 horas.</p>
+                <div class="cta-actions">
+                    <a href="#contact-form" class="cta-btn primary">
+                        <i class="fas fa-envelope"></i>
+                        <span>Enviar Mensaje</span>
+                    </a>
+                    <a href="tel:+51987654321" class="cta-btn secondary">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>Llamar Ahora</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>¿Listo para tu próxima aventura?</h2>
+                <p>Nuestros expertos están listos para crear el viaje perfecto para ti.</p>
+                <div class="cta-buttons">
+                    <a href="tel:+51987654321" class="btn btn-primary">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>Llamar Ahora</span>
+                    </a>
+                    <a href="https://wa.me/51987654321" class="btn btn-secondary" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+           <!-- Footer Elegante Minimalista -->
+<footer class="minimal-footer">
+    <!-- Sección superior solo con redes sociales -->
+    <div class="footer-socials">
+        <div class="socials-container">
+            <h3 class="socials-title">Conecta con nosotros</h3>
+            <p class="socials-subtitle">Sigue nuestras aventuras en redes sociales</p>
+            
+            <div class="social-icons-grid">
+                <a href="https://facebook.com" class="social-icon-link" target="_blank" aria-label="Facebook">
+                    <div class="social-icon-wrapper">
+                        <i class="fab fa-facebook-f"></i>
+                        <div class="social-tooltip">
+                            <span>Facebook</span>
+                            <small>12.5K seguidores</small>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="https://instagram.com" class="social-icon-link" target="_blank" aria-label="Instagram">
+                    <div class="social-icon-wrapper">
+                        <i class="fab fa-instagram"></i>
+                        <div class="social-tooltip">
+                            <span>Instagram</span>
+                            <small>25.3K seguidores</small>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="https://twitter.com" class="social-icon-link" target="_blank" aria-label="Twitter">
+                    <div class="social-icon-wrapper">
+                        <i class="fab fa-twitter"></i>
+                        <div class="social-tooltip">
+                            <span>Twitter</span>
+                            <small>8.7K seguidores</small>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="https://youtube.com" class="social-icon-link" target="_blank" aria-label="YouTube">
+                    <div class="social-icon-wrapper">
+                        <i class="fab fa-youtube"></i>
+                        <div class="social-tooltip">
+                            <span>YouTube</span>
+                            <small>15.2K seguidores</small>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="https://tiktok.com" class="social-icon-link" target="_blank" aria-label="TikTok">
+                    <div class="social-icon-wrapper">
+                        <i class="fab fa-tiktok"></i>
+                        <div class="social-tooltip">
+                            <span>TikTok</span>
+                            <small>18.9K seguidores</small>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="https://pinterest.com" class="social-icon-link" target="_blank" aria-label="Pinterest">
+                    <div class="social-icon-wrapper">
+                        <i class="fab fa-pinterest-p"></i>
+                        <div class="social-tooltip">
+                            <span>Pinterest</span>
+                            <small>5.4K seguidores</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="social-stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalFollowers">0</span>
+                    <span class="stat-label">Total Seguidores</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Soporte</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Satisfacción</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sección inferior con el resto del contenido -->
+    <div class="footer-main">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Logo y tagline -->
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <span class="logo-main">AVENTURA</span>
+                        <span class="logo-sub">TRAVEL</span>
+                    </a>
+                    <p class="footer-tagline">Descubre el Perú como nunca antes</p>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="footer-newsletter">
+                    <h4>Mantente informado</h4>
+                    <form class="newsletter-form" id="minimalNewsletterForm">
+                        <input type="email" 
+                               placeholder="Tu correo electrónico" 
+                               class="newsletter-input"
+                               required>
+                        <button type="submit" class="newsletter-submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    <p class="newsletter-hint">Recibe ofertas exclusivas</p>
+                </div>
+                
+                <!-- Enlaces rápidos -->
+                <div class="footer-links">
+                    <div class="links-column">
+                        <h5>Destinos</h5>
+                        <ul>
+                            <li><a href="machupicchu.html">Machu Picchu</a></li>
+                            <li><a href="lagotiticaca.html">Lago Titicaca</a></li>
+                            <li><a href="lineasnazca.html">Líneas de Nazca</a></li>
+                        </ul>
+                    </div>
+                    <div class="links-column">
+                        <h5>Ayuda</h5>
+                        <ul>
+                            <li><a href="../index.html#faq">FAQ</a></li>
+                            <li><a href="#">Contacto</a></li>
+                            <li><a href="#">Reservas</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Línea divisoria -->
+            <div class="footer-divider"></div>
+            
+            <!-- Copyright y enlaces legales -->
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2024 Aventura Travel. Todos los derechos reservados.</p>
+                </div>
+                
+                <div class="legal-links">
+                    <a href="#">Privacidad</a>
+                    <span class="separator">•</span>
+                    <a href="#">Términos</a>
+                    <span class="separator">•</span>
+                    <a href="#">Cookies</a>
+                </div>
+                
+                <!-- Botón de volver arriba -->
+                <button class="back-to-top-btn" id="backToTopBtn" aria-label="Volver arriba">
+                    <i class="fas fa-chevron-up"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+ </footer>
+
+    <!-- Botón de WhatsApp Flotante -->
+    <a href="https://wa.me/51987654321" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-text">¿Necesitas ayuda?</span>
+    </a>
+
+    <!-- Botón Volver Arriba -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/contacto.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+</body>
+</html>

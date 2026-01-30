@@ -1,0 +1,185 @@
+/* ===== VIDEO ERROR STATES ===== */
+.video-error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 2rem 3rem;
+    border-radius: 20px;
+    text-align: center;
+    z-index: 10;
+    border: 2px solid rgba(212, 175, 55, 0.5);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+    max-width: 80%;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.video-error i {
+    font-size: 3rem;
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.video-error p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.retry-btn {
+    background: var(--gradient-accent);
+    color: var(--primary-dark);
+    border: none;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+}
+
+.retry-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(212, 175, 55, 0.5);
+}
+
+/* ===== VIDEO CONTROLS CUSTOMIZATION ===== */
+#heroVideo::-webkit-media-controls-panel {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#heroVideo:hover::-webkit-media-controls-panel {
+    opacity: 1;
+}
+
+#heroVideo::-webkit-media-controls-play-button {
+    background-color: var(--accent-gold);
+    border-radius: 50%;
+}
+
+#heroVideo::-webkit-media-controls-current-time-display,
+#heroVideo::-webkit-media-controls-time-remaining-display {
+    color: white;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== VIDEO LOADING STATE ===== */
+.video-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(212, 175, 55, 0.3);
+    border-top: 4px solid var(--accent-gold);
+    border-radius: 50%;
+    animation: spinLoading 1s linear infinite;
+    display: none;
+    z-index: 3;
+}
+
+.video-loading::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.2), transparent);
+    animation: pulseLoading 2s ease-in-out infinite;
+}
+
+@keyframes spinLoading {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes pulseLoading {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.1); }
+}
+
+/* ===== VIDEO FALLBACK IMAGE ===== */
+.video-thumbnail {
+    background-image: url('../imagenes/machupicchufondo.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+}
+
+/* Para cuando el video falla, mostrar la imagen de fondo */
+#heroVideo[poster] {
+    background-color: #000;
+}
+
+/* ===== MOBILE VIDEO OPTIMIZATION ===== */
+@media (max-width: 768px) {
+    .video-player {
+        height: 280px;
+    }
+    
+    #heroVideo {
+        object-fit: contain;
+        background-color: #000;
+    }
+    
+    .video-error {
+        padding: 1.5rem;
+        max-width: 90%;
+    }
+    
+    .video-error i {
+        font-size: 2rem;
+    }
+    
+    .video-error p {
+        font-size: 1rem;
+    }
+}
+
+/* ===== AUTO-PLAY POLICIES ===== */
+/* Estilos para cuando el autoplay está bloqueado */
+.video-autoplay-blocked {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 5;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 2px solid var(--accent-gold);
+}
+
+.video-autoplay-blocked p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.enable-autoplay-btn {
+    background: var(--gradient-accent);
+    color: var(--primary-dark);
+    border: none;
+    padding: 10px 24px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.enable-autoplay-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+}

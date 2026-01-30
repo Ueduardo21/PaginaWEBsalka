@@ -1,0 +1,165 @@
+/* =============================================
+   ESTILOS BASE DE LA PÁGINA PRINCIPAL
+   Esto debe ir en tu archivo style.css principal
+============================================= */
+
+/* 1. RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 2. BODY - SIN FONDO BLANCO */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0a192f !important; /* Mismo azul del loader o el que prefieras */
+    color: #e6f1ff;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* 3. CONTENEDOR PRINCIPAL - ASEGURAR QUE OCUPE TODO */
+.main-content {
+    background-color: #0a192f !important; /* Mismo que el body */
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* 4. SECCIÓN DEL CONTADOR (basado en tu imagen) */
+.countdown-section {
+    background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+    padding: 80px 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.timer {
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: #64ffda;
+    margin-bottom: 10px;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 5px;
+}
+
+.timer span {
+    display: inline-block;
+    min-width: 80px;
+    text-shadow: 0 0 20px rgba(100, 255, 218, 0.5);
+}
+
+.timer-labels {
+    font-size: 1rem;
+    color: #8892b0;
+    margin-bottom: 50px;
+    letter-spacing: 3px;
+}
+
+.timer-labels span {
+    display: inline-block;
+    min-width: 80px;
+    margin: 0 5px;
+}
+
+.discover-btn {
+    background: transparent;
+    border: 2px solid #64ffda;
+    color: #64ffda;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 2px;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+}
+
+.discover-btn:hover {
+    background: rgba(100, 255, 218, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(100, 255, 218, 0.2);
+}
+
+.main-title {
+    font-size: 3.5rem;
+    color: #e6f1ff;
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: #8892b0;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* 5. OTRAS SECCIONES - ESTRUCTURA BASE */
+.section {
+    padding: 100px 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 6. RESPONSIVE */
+@media (max-width: 768px) {
+    .timer {
+        font-size: 3rem;
+        letter-spacing: 3px;
+    }
+    
+    .timer span {
+        min-width: 60px;
+    }
+    
+    .timer-labels span {
+        min-width: 60px;
+        font-size: 0.9rem;
+    }
+    
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .timer {
+        font-size: 2.2rem;
+        letter-spacing: 2px;
+    }
+    
+    .timer span {
+        min-width: 50px;
+    }
+    
+    .timer-labels span {
+        min-width: 50px;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+    
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .discover-btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+}
