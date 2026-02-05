@@ -17,8 +17,7 @@ class PeruToursGallery {
         // Configurar modo responsive
         this.setupResponsive();
         
-        // Inicializar YouTube API
-        this.setupYouTube();
+        // NOTA: Ya no usamos la API de YouTube directamente
     }
 
     cacheElements() {
@@ -69,14 +68,12 @@ class PeruToursGallery {
         this.modalTourBtn = document.getElementById('modalTourBtn');
         
         // Variables de YouTube
-        this.youtubePlayers = new Map(); // Almacena instancias de reproductores
         this.currentYouTubeId = null;
-        this.youtubeAPIReady = false;
-        this.pendingYouTubeLoads = [];
+        this.activeYouTubeIframe = null;
     }
 
     initializeData() {
-        // Datos de las imágenes y videos de YouTube
+        // Datos de las imágenes y videos de YouTube - ACTUALIZADOS
         this.mediaData = {
             // Machu Picchu - YouTube
             'mp-youtube1': {
@@ -89,7 +86,7 @@ class PeruToursGallery {
                 badge: "Machu Picchu",
                 badgeClass: "mp-badge",
                 type: "youtube",
-                youtubeId: "KZR1p6_1bHA"
+                youtubeId: "ArF0GNuww4c"
             },
             // Machu Picchu Imágenes
             'mp1': {
@@ -136,7 +133,7 @@ class PeruToursGallery {
                 badge: "Titicaca",
                 badgeClass: "tt-badge",
                 type: "youtube",
-                youtubeId: "U5g1T9fEb_8"
+                youtubeId: "k4GgT3DvH3E"
             },
             // Lago Titicaca Imágenes
             'tt1': {
@@ -183,7 +180,7 @@ class PeruToursGallery {
                 badge: "Nazca",
                 badgeClass: "nz-badge",
                 type: "youtube",
-                youtubeId: "6v2L2zZ0uMk"
+                youtubeId: "WS7HPSsy1vU"
             },
             // Líneas de Nazca Imágenes
             'nz1': {
@@ -227,7 +224,6 @@ class PeruToursGallery {
         this.currentCards = Array.from(this.galleryCards);
         this.modalIndex = 0;
         this.filterCounts = this.calculateFilterCounts();
-        this.activeYouTubePlayer = null;
     }
 
     calculateFilterCounts() {
@@ -247,7 +243,7 @@ class PeruToursGallery {
 
     bindEvents() {
         // Toggle del menú móvil
-        this.menuToggle.addEventListener('click', () => this.toggleSidebar());
+        this.menuToggle?.addEventListener('click', () => this.toggleSidebar());
         
         // Filtros
         this.filterButtons.forEach(btn => {
@@ -272,7 +268,7 @@ class PeruToursGallery {
         
         // Botones de YouTube en tarjetas
         document.querySelectorAll('.youtube-wrapper').forEach(wrapper => {
-            wrapper.addEventListener('click', (e) => this.openYouTubeModal(e));
+            wrapper.addEventListener('click', (e) => this.openYouTubeFromWrapper(e));
         });
         
         // Modal controls
@@ -289,32 +285,6 @@ class PeruToursGallery {
         this.modalOverlay.addEventListener('click', (e) => {
             if (e.target === this.modalOverlay) this.closeModal();
         });
-        
-        // Detener videos de YouTube cuando se cierra el modal
-        this.modalClose.addEventListener('click', () => {
-            this.stopAllYouTubePlayers();
-        });
-    }
-
-    setupYouTube() {
-        // Verificar si la API de YouTube ya está cargada
-        if (window.YT && window.YT.Player) {
-            this.youtubeAPIReady = true;
-            this.processPendingYouTubeLoads();
-        } else {
-            // Configurar callback cuando la API esté lista
-            window.onYouTubeIframeAPIReady = () => {
-                this.youtubeAPIReady = true;
-                this.processPendingYouTubeLoads();
-            };
-        }
-    }
-
-    processPendingYouTubeLoads() {
-        if (this.youtubeAPIReady && this.pendingYouTubeLoads.length > 0) {
-            this.pendingYouTubeLoads.forEach(loadFn => loadFn());
-            this.pendingYouTubeLoads = [];
-        }
     }
 
     toggleSidebar() {
@@ -331,8 +301,8 @@ class PeruToursGallery {
         });
         button.classList.add('active');
         
-        // Detener reproductores de YouTube
-        this.stopAllYouTubePlayers();
+        // Detener videos de YouTube
+        this.stopYouTubePlayer();
         
         // Aplicar filtro
         this.currentFilter = filter;
@@ -342,18 +312,23 @@ class PeruToursGallery {
     applyFilter() {
         this.showLoading();
         
-        // Obtener todas las tarjetas visibles (no ocultas por otros filtros)
-        const visibleCards = Array.from(this.galleryCards).filter(card => 
-            !card.classList.contains('hidden')
-        );
+        // Obtener todas las tarjetas
+        const allCards = Array.from(this.galleryCards);
         
         // Filtrar tarjetas según filtro actual y búsqueda
-        const filteredCards = visibleCards.filter(card => {
+        const filteredCards = allCards.filter(card => {
             const matchesFilter = this.currentFilter === 'all' || 
                                  card.classList.contains(this.currentFilter);
-            const matchesSearch = this.searchTerm === '' || 
-                                 card.querySelector('.card-title').textContent.toLowerCase().includes(this.searchTerm) ||
-                                 card.querySelector('.card-desc').textContent.toLowerCase().includes(this.searchTerm);
+            
+            // Solo verificar búsqueda si hay término de búsqueda
+            let matchesSearch = true;
+            if (this.searchTerm.trim() !== '') {
+                const title = card.querySelector('.card-title')?.textContent?.toLowerCase() || '';
+                const desc = card.querySelector('.card-desc')?.textContent?.toLowerCase() || '';
+                const searchLower = this.searchTerm.toLowerCase();
+                matchesSearch = title.includes(searchLower) || desc.includes(searchLower);
+            }
+            
             return matchesFilter && matchesSearch;
         });
         
@@ -367,12 +342,10 @@ class PeruToursGallery {
     animateFilterTransition(filteredCards) {
         // Ocultar todas las tarjetas primero
         this.galleryCards.forEach(card => {
-            if (!card.classList.contains('hidden')) {
-                card.style.animation = 'cardExit 0.3s ease';
-                setTimeout(() => {
-                    card.classList.add('hidden');
-                }, 150);
-            }
+            card.style.animation = 'cardExit 0.3s ease';
+            setTimeout(() => {
+                card.classList.add('hidden');
+            }, 150);
         });
         
         // Mostrar tarjetas filtradas después de un delay
@@ -403,9 +376,9 @@ class PeruToursGallery {
         };
         
         const filterName = filterNames[this.currentFilter];
-        this.currentFilterDisplay.textContent = filterName;
-        this.breadcrumbFilter.textContent = filterName;
-        this.currentFilterCount.textContent = `${filteredCount} contenidos`;
+        if (this.currentFilterDisplay) this.currentFilterDisplay.textContent = filterName;
+        if (this.breadcrumbFilter) this.breadcrumbFilter.textContent = filterName;
+        if (this.currentFilterCount) this.currentFilterCount.textContent = `${filteredCount} contenidos`;
         
         // Actualizar contadores en botones
         this.filterButtons.forEach(btn => {
@@ -420,16 +393,16 @@ class PeruToursGallery {
         });
         
         // Actualizar estadísticas en sidebar
-        this.totalPhotos.textContent = this.filterCounts.all;
+        if (this.totalPhotos) this.totalPhotos.textContent = this.filterCounts.all;
     }
 
     handleSearch(event) {
-        this.searchTerm = event.target.value.toLowerCase();
+        this.searchTerm = event.target.value;
         this.applyFilter();
     }
 
     resetFilter() {
-        this.searchInput.value = '';
+        if (this.searchInput) this.searchInput.value = '';
         this.searchTerm = '';
         this.currentFilter = 'all';
         
@@ -445,19 +418,27 @@ class PeruToursGallery {
     }
 
     showLoading() {
-        this.loadingIndicator.classList.add('active');
-        this.noResults.style.display = 'none';
+        if (this.loadingIndicator) {
+            this.loadingIndicator.classList.add('active');
+        }
+        if (this.noResults) {
+            this.noResults.style.display = 'none';
+        }
     }
 
     hideLoading() {
-        this.loadingIndicator.classList.remove('active');
+        if (this.loadingIndicator) {
+            this.loadingIndicator.classList.remove('active');
+        }
     }
 
     checkNoResults(count) {
-        if (count === 0) {
-            this.noResults.style.display = 'block';
-        } else {
-            this.noResults.style.display = 'none';
+        if (this.noResults) {
+            if (count === 0) {
+                this.noResults.style.display = 'block';
+            } else {
+                this.noResults.style.display = 'none';
+            }
         }
     }
 
@@ -468,8 +449,8 @@ class PeruToursGallery {
         const mediaId = button.dataset.id;
         const isYoutube = button.dataset.type === 'youtube';
         
-        // Detener reproductores de YouTube activos
-        this.stopAllYouTubePlayers();
+        // Detener reproductor de YouTube si existe
+        this.stopYouTubePlayer();
         
         // Encontrar índice de la tarjeta en las tarjetas filtradas
         const currentCards = Array.from(this.galleryCards).filter(card => !card.classList.contains('hidden'));
@@ -483,7 +464,7 @@ class PeruToursGallery {
         this.showModal(mediaId, isYoutube);
     }
 
-    openYouTubeModal(event) {
+    openYouTubeFromWrapper(event) {
         event.stopPropagation();
         
         const wrapper = event.currentTarget;
@@ -507,7 +488,13 @@ class PeruToursGallery {
 
     showModal(mediaId, isYouTube = false, youtubeId = null) {
         const mediaData = this.mediaData[mediaId];
-        if (!mediaData) return;
+        if (!mediaData) {
+            console.error('Datos no encontrados para:', mediaId);
+            return;
+        }
+        
+        // Detener reproductor anterior
+        this.stopYouTubePlayer();
         
         // Configurar modal según tipo de contenido
         if (isYouTube) {
@@ -519,8 +506,9 @@ class PeruToursGallery {
         
         // Configurar badge
         this.modalBadge.className = `modal-badge ${mediaData.badgeClass}`;
-        this.modalBadge.innerHTML = `<i class="fas fa-${mediaData.badgeClass.includes('mp') ? 'mountain' : 
-                                                         mediaData.badgeClass.includes('tt') ? 'water' : 'draw-polygon'}"></i> ${mediaData.badge}`;
+        const iconClass = mediaData.badgeClass.includes('mp') ? 'mountain' : 
+                         mediaData.badgeClass.includes('tt') ? 'water' : 'draw-polygon';
+        this.modalBadge.innerHTML = `<i class="fas fa-${iconClass}"></i> ${mediaData.badge}`;
         
         // Configurar información común
         this.modalTitle.textContent = mediaData.title;
@@ -544,92 +532,86 @@ class PeruToursGallery {
 
     showImageModal(mediaData, mediaId) {
         // Limpiar contenedor de YouTube
-        this.modalYoutubePlayer.innerHTML = '';
-        this.modalYoutubePlayer.style.display = 'none';
+        if (this.modalYoutubePlayer) {
+            this.modalYoutubePlayer.innerHTML = '';
+            this.modalYoutubePlayer.style.display = 'none';
+        }
         
         // Mostrar imagen
-        this.modalImage.style.display = 'block';
-        
-        // Buscar la imagen original
-        const originalCard = document.querySelector(`[data-id="${mediaId}"]`).closest('.gallery-card');
-        const imgElement = originalCard.querySelector('img:not(.youtube-thumbnail)');
-        
-        if (imgElement) {
-            this.modalImage.src = imgElement.src;
-            this.modalImage.alt = imgElement.alt || mediaData.title;
-            this.modalImage.style.opacity = '0';
+        if (this.modalImage) {
+            this.modalImage.style.display = 'block';
             
-            // Animación de aparición
-            setTimeout(() => {
-                this.modalImage.style.opacity = '1';
-                this.modalImage.style.transition = 'opacity 0.3s ease';
-            }, 50);
+            // Buscar la imagen original
+            const originalButton = document.querySelector(`[data-id="${mediaId}"]`);
+            if (!originalButton) return;
+            
+            const originalCard = originalButton.closest('.gallery-card');
+            if (!originalCard) return;
+            
+            const imgElement = originalCard.querySelector('img:not(.youtube-thumbnail)');
+            
+            if (imgElement) {
+                this.modalImage.src = imgElement.src;
+                this.modalImage.alt = imgElement.alt || mediaData.title;
+                this.modalImage.style.opacity = '0';
+                
+                // Asegurarse de que la imagen se cargue
+                if (!this.modalImage.complete) {
+                    this.modalImage.onload = () => {
+                        this.modalImage.style.opacity = '1';
+                        this.modalImage.style.transition = 'opacity 0.3s ease';
+                    };
+                } else {
+                    this.modalImage.style.opacity = '1';
+                    this.modalImage.style.transition = 'opacity 0.3s ease';
+                }
+            }
         }
     }
 
     showYouTubeModal(mediaData, youtubeId) {
+        console.log('Cargando video de YouTube ID:', youtubeId);
+        
         // Ocultar imagen
-        this.modalImage.style.display = 'none';
-        
-        // Mostrar contenedor de YouTube
-        this.modalYoutubePlayer.style.display = 'block';
-        this.modalYoutubePlayer.innerHTML = '';
-        
-        // Crear contenedor para el reproductor
-        const playerContainer = document.createElement('div');
-        playerContainer.className = 'youtube-player-container';
-        playerContainer.id = `youtube-player-${youtubeId}`;
-        this.modalYoutubePlayer.appendChild(playerContainer);
-        
-        // Configurar para cargar el reproductor
-        const loadYouTubePlayer = () => {
-            if (this.youtubeAPIReady) {
-                this.createYouTubePlayer(youtubeId, playerContainer.id);
-            } else {
-                // Esperar a que la API esté lista
-                this.pendingYouTubeLoads.push(() => {
-                    this.createYouTubePlayer(youtubeId, playerContainer.id);
-                });
-            }
-        };
-        
-        loadYouTubePlayer();
-    }
-
-    createYouTubePlayer(youtubeId, containerId) {
-        // Detener reproductor anterior si existe
-        if (this.activeYouTubePlayer) {
-            this.activeYouTubePlayer.stopVideo();
+        if (this.modalImage) {
+            this.modalImage.style.display = 'none';
         }
         
-        // Crear nuevo reproductor
-        const player = new YT.Player(containerId, {
-            height: '100%',
-            width: '100%',
-            videoId: youtubeId,
-            playerVars: {
-                'autoplay': 1,
-                'controls': 1,
-                'rel': 0,
-                'showinfo': 0,
-                'modestbranding': 1,
-                'playsinline': 1
-            },
-            events: {
-                'onReady': (event) => {
-                    this.activeYouTubePlayer = event.target;
-                    this.currentYouTubeId = youtubeId;
-                },
-                'onStateChange': (event) => {
-                    // Manejar cambios de estado si es necesario
-                    if (event.data === YT.PlayerState.ENDED) {
-                        // Video terminado
-                    }
-                }
-            }
-        });
+        // Mostrar contenedor de YouTube
+        if (this.modalYoutubePlayer) {
+            this.modalYoutubePlayer.style.display = 'block';
+            
+            // Crear iframe simple y directo - SIN API
+            this.modalYoutubePlayer.innerHTML = `
+                <div class="youtube-iframe-wrapper">
+                    <iframe 
+                        src="https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        title="${mediaData.title}">
+                    </iframe>
+                </div>
+            `;
+            
+            // Guardar referencia al iframe
+            this.activeYouTubeIframe = this.modalYoutubePlayer.querySelector('iframe');
+            this.currentYouTubeId = youtubeId;
+        }
+    }
+
+    stopYouTubePlayer() {
+        if (this.activeYouTubeIframe) {
+            // Cambiar el src para detener el video
+            this.activeYouTubeIframe.src = '';
+            this.activeYouTubeIframe = null;
+            this.currentYouTubeId = null;
+        }
         
-        this.youtubePlayers.set(youtubeId, player);
+        // Limpiar contenedor si existe
+        if (this.modalYoutubePlayer) {
+            this.modalYoutubePlayer.innerHTML = '';
+        }
     }
 
     navigateModal(direction) {
@@ -637,8 +619,8 @@ class PeruToursGallery {
         
         if (currentCards.length === 0) return;
         
-        // Detener reproductor de YouTube actual
-        this.stopAllYouTubePlayers();
+        // Detener video actual
+        this.stopYouTubePlayer();
         
         // Calcular nuevo índice
         this.modalIndex = (this.modalIndex + direction + currentCards.length) % currentCards.length;
@@ -659,61 +641,35 @@ class PeruToursGallery {
         }
         
         // Animación de transición
-        this.modalImage.style.opacity = '0';
-        this.modalYoutubePlayer.style.opacity = '0';
+        if (this.modalImage) {
+            this.modalImage.style.opacity = '0';
+        }
+        if (this.modalYoutubePlayer) {
+            this.modalYoutubePlayer.style.opacity = '0';
+        }
         
         setTimeout(() => {
             this.showModal(newMediaId, isYoutube, youtubeId);
             
-            if (isYoutube) {
+            if (isYoutube && this.modalYoutubePlayer) {
                 this.modalYoutubePlayer.style.opacity = '1';
-            } else {
+            } else if (this.modalImage) {
                 this.modalImage.style.opacity = '1';
             }
         }, 300);
     }
 
     closeModal() {
-        // Detener todos los reproductores de YouTube
-        this.stopAllYouTubePlayers();
-        
-        // Limpiar contenedor de YouTube
-        this.modalYoutubePlayer.innerHTML = '';
+        // Detener reproductor de YouTube
+        this.stopYouTubePlayer();
         
         // Cerrar modal
         this.modalOverlay.classList.remove('active');
         document.body.style.overflow = 'auto';
-        
-        // Resetear variables
-        this.activeYouTubePlayer = null;
-        this.currentYouTubeId = null;
-    }
-
-    stopAllYouTubePlayers() {
-        // Detener reproductor activo
-        if (this.activeYouTubePlayer) {
-            try {
-                this.activeYouTubePlayer.stopVideo();
-            } catch (e) {
-                console.log("Error deteniendo video:", e);
-            }
-            this.activeYouTubePlayer = null;
-        }
-        
-        // Detener todos los reproductores en el mapa
-        this.youtubePlayers.forEach(player => {
-            try {
-                player.stopVideo();
-            } catch (e) {
-                // Ignorar errores si el reproductor no está disponible
-            }
-        });
-        
-        this.youtubePlayers.clear();
     }
 
     shareMedia() {
-        const isYouTube = this.modalYoutubePlayer.style.display === 'block';
+        const isYouTube = this.modalYoutubePlayer && this.modalYoutubePlayer.style.display === 'block';
         const mediaType = isYouTube ? 'video de YouTube' : 'imagen';
         const title = this.modalTitle.textContent;
         const text = this.modalDescription.textContent;
@@ -723,14 +679,21 @@ class PeruToursGallery {
                 title: title,
                 text: `${text}\n\nMira este ${mediaType} de Perú Tours`,
                 url: window.location.href
+            }).catch(err => {
+                console.log('Error al compartir:', err);
+                this.copyToClipboard();
             });
         } else {
-            navigator.clipboard.writeText(window.location.href).then(() => {
-                alert(`¡Enlace del ${mediaType} copiado al portapapeles!`);
-            }).catch(err => {
-                alert('Error al copiar el enlace. Por favor, copia la URL manualmente.');
-            });
+            this.copyToClipboard();
         }
+    }
+    
+    copyToClipboard() {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            alert('¡Enlace copiado al portapapeles!');
+        }).catch(err => {
+            alert('Error al copiar el enlace. Por favor, copia la URL manualmente.');
+        });
     }
 
     bookTour() {
@@ -742,6 +705,7 @@ class PeruToursGallery {
         // Simular redirección (en producción, usar window.location)
         setTimeout(() => {
             console.log(`Redirigiendo a formulario de reserva para: ${tourName}`);
+            // window.location.href = `/reservar?tour=${encodeURIComponent(tourName)}`;
         }, 500);
     }
 
@@ -753,7 +717,7 @@ class PeruToursGallery {
         if (icon.classList.contains('far')) {
             icon.classList.remove('far');
             icon.classList.add('fas');
-            button.style.color = '#e53e3e';
+            button.style.color = '#f59e0b';
             
             // Animación de corazón
             button.style.transform = 'scale(1.2)';
@@ -780,42 +744,34 @@ class PeruToursGallery {
             case 'ArrowRight':
                 this.navigateModal(1);
                 break;
-            case ' ':
-                // Espacio para pausar/reproducir YouTube
-                if (this.activeYouTubePlayer) {
-                    event.preventDefault();
-                    const state = this.activeYouTubePlayer.getPlayerState();
-                    if (state === YT.PlayerState.PLAYING) {
-                        this.activeYouTubePlayer.pauseVideo();
-                    } else if (state === YT.PlayerState.PAUSED) {
-                        this.activeYouTubePlayer.playVideo();
-                    }
-                }
-                break;
         }
     }
 
     updateUI() {
         // Actualizar contadores iniciales
-        this.totalPhotos.textContent = this.filterCounts.all;
-        this.viewCount.textContent = this.filterCounts.all;
-        this.footerCount.textContent = this.filterCounts.all;
+        if (this.totalPhotos) this.totalPhotos.textContent = this.filterCounts.all;
+        if (this.viewCount) this.viewCount.textContent = this.filterCounts.all;
+        if (this.footerCount) this.footerCount.textContent = this.filterCounts.all;
     }
 
     setUpdateDate() {
         const now = new Date();
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         const dateStr = now.toLocaleDateString('es-ES', options);
-        document.getElementById('updateDate').textContent = dateStr;
+        const updateDateEl = document.getElementById('updateDate');
+        if (updateDateEl) {
+            updateDateEl.textContent = dateStr;
+        }
     }
 
     setupResponsive() {
         // Cerrar sidebar al hacer clic fuera en móvil
         document.addEventListener('click', (e) => {
             if (window.innerWidth <= 992 && 
+                this.sidebar && 
                 this.sidebar.classList.contains('active') &&
                 !this.sidebar.contains(e.target) &&
-                e.target !== this.menuToggle) {
+                (!this.menuToggle || e.target !== this.menuToggle)) {
                 this.sidebar.classList.remove('active');
             }
         });
@@ -828,15 +784,8 @@ class PeruToursGallery {
         
         // Detener YouTube cuando se cambia a otra pestaña
         document.addEventListener('visibilitychange', () => {
-            if (document.hidden && this.activeYouTubePlayer) {
-                this.activeYouTubePlayer.pauseVideo();
-            }
-        });
-        
-        // Detener YouTube en orientación change (móviles)
-        window.addEventListener('orientationchange', () => {
-            if (this.activeYouTubePlayer) {
-                this.activeYouTubePlayer.pauseVideo();
+            if (document.hidden && this.activeYouTubeIframe) {
+                this.stopYouTubePlayer();
             }
         });
     }
@@ -848,6 +797,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Exponer globalmente si es necesario
     window.PeruGallery = gallery;
+    
+    // Mostrar mensaje de depuración
+    console.log('Galería Perú Tours inicializada');
+    console.log('IDs de YouTube disponibles:');
+    console.log('- Machu Picchu: ArF0GNuww4c');
+    console.log('- Lago Titicaca: k4GgT3DvH3E');
+    console.log('- Líneas de Nazca: WS7HPSsy1vU');
 });
 
 // Efecto de carga suave
@@ -859,11 +815,3 @@ window.addEventListener('load', () => {
         document.body.style.opacity = '1';
     }, 100);
 });
-
-// Cargar API de YouTube si no está cargada
-if (!window.YT) {
-    const tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-}

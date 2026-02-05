@@ -6,10 +6,11 @@
     <title>Machu Picchu - Aventura Travel</title>
     
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/destination.css">
-    <link rel="stylesheet" href="../css/floating-buttons.css">
-    <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../../assets/css/destination/destination.css">
+    <link rel="stylesheet" href="../../assets/css/index/faq.css">
+    <link rel="stylesheet" href="../../assets/css/floating-buttons.css">
+    <link rel="stylesheet" href="../../assets/css/navbar.css">
+    <link rel="stylesheet" href="../../assets/css/footer.css">
     
     <!-- Fuentes -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;800&display=swap" rel="stylesheet">
@@ -27,7 +28,7 @@
         <div class="logo">
             <a href="../index.html">
                 <!-- Tu logo aquí - Solo imagen -->
-                <img src="../imagenes/logo.png" alt="SALKANY Trek & Expedition" class="logo-img">
+                <img src="../../assets/imagenes/logo.png" alt="SALKANY Trek & Expedition" class="logo-img">
             </a>
         </div>
         
@@ -412,18 +413,6 @@
         <div class="carousel-info">
             <p><strong>Galería interactiva:</strong> Explora la maravilla de Machu Picchu a través de estas imágenes. Pasa el cursor sobre cualquier foto para detener el carrusel y descubrir detalles fascinantes sobre la ciudadela inca.</p>
         </div>
-        
-        <!-- Indicadores del carrusel (opcional) -->
-        <div class="carousel-indicators">
-            <div class="carousel-indicator active" data-index="0"></div>
-            <div class="carousel-indicator" data-index="1"></div>
-            <div class="carousel-indicator" data-index="2"></div>
-            <div class="carousel-indicator" data-index="3"></div>
-            <div class="carousel-indicator" data-index="4"></div>
-            <div class="carousel-indicator" data-index="5"></div>
-            <div class="carousel-indicator" data-index="6"></div>
-            <div class="carousel-indicator" data-index="7"></div>
-        </div>
     </div>
 </section>
 
@@ -558,19 +547,19 @@
         </div>
     </section>
 
-    <!-- FAQ - Versión del index.html -->
-<section class="faq-section" id="faq">
+<!-- ========== FAQ SECTION MACHU PICCHU ========== -->
+<section class="faq-section" id="machupicchu-faq">
     <div class="faq-container">
         <!-- Encabezado de la sección -->
         <div class="faq-header">
-            <span class="section-subtitle">¿Tienes dudas sobre Machu Picchu?</span>
+            <span class="section-subtitle">¿Planificando tu viaje?</span>
             <h2 class="section-title">
-                <span class="title-line">Preguntas</span>
-                <span class="title-line accent">Frecuentes</span>
+                <span class="title-line">Machu Picchu</span>
+                <span class="title-line accent">Preguntas Frecuentes</span>
             </h2>
             <p class="section-description">
-                Resolvemos las inquietudes más comunes sobre la Maravilla del Mundo para que 
-                puedas disfrutar de esta experiencia única con toda la información necesaria.
+                Resolvemos todas tus dudas sobre el tour a Machu Picchu para que disfrutes 
+                de esta maravilla del mundo sin preocupaciones.
             </p>
         </div>
         
@@ -580,45 +569,51 @@
             <div class="faq-categories">
                 <div class="categories-header">
                     <h3><i class="fas fa-filter"></i> Categorías</h3>
-                    <p>Filtra por tema de tu interés</p>
+                    <p>Filtra por tema de interés</p>
                 </div>
                 
                 <div class="categories-list">
                     <button class="category-btn active" data-category="all">
-                        <i class="fas fa-globe-americas"></i>
+                        <i class="fas fa-water"></i>
                         <span>Todas las preguntas</span>
-                        <span class="category-count">4</span>
+                        <span class="category-count">10</span>
                     </button>
                     
-                    <button class="category-btn" data-category="preparation">
-                        <i class="fas fa-suitcase"></i>
+                    <button class="category-btn" data-category="reservas">
+                        <i class="fas fa-ticket-alt"></i>
+                        <span>Entradas y Reservas</span>
+                        <span class="category-count">3</span>
+                    </button>
+                    
+                    <button class="category-btn" data-category="preparacion">
+                        <i class="fas fa-hiking"></i>
                         <span>Preparación</span>
+                        <span class="category-count">3</span>
+                    </button>
+                    
+                    <button class="category-btn" data-category="tour">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Durante el Tour</span>
                         <span class="category-count">2</span>
                     </button>
                     
-                    <button class="category-btn" data-category="health">
-                        <i class="fas fa-heartbeat"></i>
-                        <span>Salud</span>
-                        <span class="category-count">1</span>
-                    </button>
-                    
-                    <button class="category-btn" data-category="weather">
+                    <button class="category-btn" data-category="clima">
                         <i class="fas fa-cloud-sun"></i>
-                        <span>Clima</span>
-                        <span class="category-count">1</span>
+                        <span>Clima y Altura</span>
+                        <span class="category-count">2</span>
                     </button>
                 </div>
                 
                 <!-- Contacto rápido -->
                 <div class="quick-contact">
-                    <h4><i class="fas fa-question-circle"></i> ¿No encuentras tu respuesta?</h4>
-                    <p>Estamos aquí para ayudarte</p>
+                    <h4><i class="fas fa-question-circle"></i> ¿Necesitas ayuda?</h4>
+                    <p>Especialistas en Machu Picchu</p>
                     <div class="contact-options">
                         <a href="https://wa.me/51987654321" class="contact-option whatsapp" target="_blank">
                             <i class="fab fa-whatsapp"></i>
                             <span>WhatsApp</span>
                         </a>
-                        <a href="mailto:info@aventuratravel.com" class="contact-option email">
+                        <a href="mailto:machupicchu@aventuratravel.com" class="contact-option email">
                             <i class="fas fa-envelope"></i>
                             <span>Email</span>
                         </a>
@@ -628,106 +623,295 @@
             
             <!-- Columna derecha - Preguntas y respuestas -->
             <div class="faq-questions">
-                <!-- Grupo: Todas las preguntas -->
-                <div class="faq-group active" data-category="all">
+                <!-- Grupo 1: Entradas y Reservas -->
+                <div class="faq-group active" data-category="reservas">
                     <h3 class="group-title">
-                        <i class="fas fa-globe-americas"></i>
-                        <span>Preguntas sobre Machu Picchu</span>
+                        <i class="fas fa-ticket-alt"></i>
+                        <span>Entradas y Reservas</span>
                     </h3>
                     
                     <div class="faq-items">
-                        <!-- FAQ 1 -->
-                        <div class="faq-item" data-category="health">
+                        <!-- Pregunta 1 -->
+                        <div class="faq-item">
                             <div class="faq-question">
                                 <div class="question-content">
-                                    <h4>¿Necesito estar en buena forma física para el tour?</h4>
-                                    <p>Condición física requerida</p>
+                                    <h4>¿Con cuánta anticipación debo reservar?</h4>
+                                    <p>Tiempo de reserva recomendado</p>
                                 </div>
                                 <span class="faq-toggle">
                                     <i class="fas fa-chevron-down"></i>
                                 </span>
                             </div>
                             <div class="faq-answer">
-                                <p>El tour básico es accesible para la mayoría de personas. Para el Camino Inca recomendamos buen estado físico. Ofrecemos rutas alternativas según tu condición.</p>
+                                <p>Machu Picchu tiene límite de visitantes diarios:</p>
+                                <ul>
+                                    <li><strong>Mínimo 3 meses:</strong> Para temporada alta (junio-agosto)</li>
+                                    <li><strong>Mínimo 1 mes:</strong> Para temporada media</li>
+                                    <li><strong>Al menos 2 semanas:</strong> Para temporada baja</li>
+                                </ul>
+                                <p><strong>Importante:</strong> Los tickets para Huayna Picchu se agotan con 4-6 meses de anticipación.</p>
                             </div>
                         </div>
                         
-                        <!-- FAQ 2 -->
-                        <div class="faq-item" data-category="preparation">
+                        <!-- Pregunta 2 -->
+                        <div class="faq-item">
                             <div class="faq-question">
                                 <div class="question-content">
-                                    <h4>¿Qué debo llevar en mi maleta?</h4>
-                                    <p>Lista de equipaje</p>
+                                    <h4>¿Qué incluye el tour?</h4>
+                                    <p>Detalles del paquete</p>
                                 </div>
                                 <span class="faq-toggle">
                                     <i class="fas fa-chevron-down"></i>
                                 </span>
                             </div>
                             <div class="faq-answer">
-                                <p>Ropa cómoda, zapatos para caminar, protector solar, gorra, cámara, documentos personales y medicamentos personales. Te enviaremos una lista completa al reservar.</p>
+                                <p>Nuestro tour completo incluye:</p>
+                                <ul>
+                                    <li><strong>Transporte:</strong> Bus Cusco-Ollantaytambo, tren a Aguas Calientes, bus a Machu Picchu</li>
+                                    <li><strong>Guía:</strong> Oficial bilingüe (español/inglés)</li>
+                                    <li><strong>Entradas:</strong> Ticket a Machu Picchu</li>
+                                    <li><strong>Asistencia:</strong> Permanente durante el tour</li>
+                                    <li><strong>Extras:</strong> Box lunch y botella de agua</li>
+                                </ul>
                             </div>
                         </div>
                         
-                        <!-- FAQ 3 -->
-                        <div class="faq-item" data-category="preparation">
+                        <!-- Pregunta 3 -->
+                        <div class="faq-item">
                             <div class="faq-question">
                                 <div class="question-content">
-                                    <h4>¿Hay límite de edad para este tour?</h4>
-                                    <p>Requisitos de edad</p>
+                                    <h4>¿Puedo cambiar la fecha de mi tour?</h4>
+                                    <p>Política de cambios</p>
                                 </div>
                                 <span class="faq-toggle">
                                     <i class="fas fa-chevron-down"></i>
                                 </span>
                             </div>
                             <div class="faq-answer">
-                                <p>El límite mínimo es 12 años. No hay límite máximo, pero recomendamos consultar con médico para personas mayores de 65 años o con condiciones médicas.</p>
+                                <p>Los cambios de fecha son posibles sujetos a:</p>
+                                <ul>
+                                    <li><strong>Disponibilidad:</strong> Depende de cupos en la nueva fecha</li>
+                                    <li><strong>Tiempo:</strong> Mínimo 48 horas antes del tour</li>
+                                    <li><strong>Costo:</strong> Puede aplicar cargo administrativo</li>
+                                    <li><strong>Entradas:</strong> Si ya fueron emitidas, cambios limitados</li>
+                                </ul>
+                                <p><strong>Nota:</strong> Los tickets de ingreso a Machu Picchu tienen política de cambios 
+                                muy restrictiva del Ministerio de Cultura.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grupo 2: Preparación -->
+                <div class="faq-group" data-category="preparacion">
+                    <h3 class="group-title">
+                        <i class="fas fa-hiking"></i>
+                        <span>Preparación para el Tour</span>
+                    </h3>
+                    
+                    <div class="faq-items">
+                        <!-- Pregunta 4 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Qué debo llevar al tour?</h4>
+                                    <p>Lista de equipaje específica</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Esenciales para Machu Picchu:</p>
+                                <ul>
+                                    <li><strong>Documentos:</strong> Pasaporte original OBLIGATORIO</li>
+                                    <li><strong>Protección:</strong> Protector solar SPF 50+, gafas, sombrero</li>
+                                    <li><strong>Ropa:</strong> Capas, impermeable, zapatos cómodos</li>
+                                    <li><strong>Equipo:</strong> Mochila pequeña (máx. 25L), agua, snacks</li>
+                                </ul>
                             </div>
                         </div>
                         
-                        <!-- FAQ 4 -->
-                        <div class="faq-item" data-category="weather">
+                        <!-- Pregunta 5 -->
+                        <div class="faq-item">
                             <div class="faq-question">
                                 <div class="question-content">
-                                    <h4>¿Qué pasa si llueve durante el tour?</h4>
-                                    <p>Clima y condiciones</p>
+                                    <h4>¿Cómo prepararme para la altura?</h4>
+                                    <p>Consejos para el mal de altura</p>
                                 </div>
                                 <span class="faq-toggle">
                                     <i class="fas fa-chevron-down"></i>
                                 </span>
                             </div>
                             <div class="faq-answer">
-                                <p>Operamos llueva o truene. Proveemos ponchos impermeables. La lluvia puede hacer el paisaje aún más mágico. Solo suspendemos en caso de condiciones climáticas extremas.</p>
+                                <p>Machu Picchu está a 2,430 msnm. Recomendaciones:</p>
+                                <ul>
+                                    <li><strong>Aclimatación:</strong> Llegar a Cusco 2 días antes</li>
+                                    <li><strong>Hidratación:</strong> Beber 3-4 litros de agua diarios</li>
+                                    <li><strong>Alimentación:</strong> Comidas ligeras, evitar alcohol</li>
+                                    <li><strong>Medicación:</strong> Sorojchi pills o mate de coca</li>
+                                    <li><strong>Ritmo:</strong> Caminar despacio, sin apuros</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Pregunta 6 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Hay restricciones de equipaje en el tren?</h4>
+                                    <p>Política de equipaje PeruRail/Inca Rail</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Las compañías de tren tienen límites estrictos:</p>
+                                <ul>
+                                    <li><strong>Equipaje de mano:</strong> 5kg máximo</li>
+                                    <li><strong>Dimensiones:</strong> Mochila/maleta pequeña</li>
+                                    <li><strong>Prohibido:</strong> Bastones de trekking en cabina</li>
+                                    <li><strong>Equipaje extra:</strong> Se puede dejar en Cusco</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grupo 3: Durante el Tour -->
+                <div class="faq-group" data-category="tour">
+                    <h3 class="group-title">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Durante el Tour</span>
+                    </h3>
+                    
+                    <div class="faq-items">
+                        <!-- Pregunta 7 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Cuánto tiempo estaremos en Machu Picchu?</h4>
+                                    <p>Duración del recorrido</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Nuestro itinerario típico incluye:</p>
+                                <ul>
+                                    <li><strong>4:00 AM:</strong> Recojo del hotel en Cusco</li>
+                                    <li><strong>6:30 AM:</strong> Tren a Aguas Calientes</li>
+                                    <li><strong>8:00 AM:</strong> Bus a la ciudadela</li>
+                                    <li><strong>9:00 - 12:00:</strong> Tour guiado (3 horas)</li>
+                                    <li><strong>12:00 - 14:00:</strong> Tiempo libre para explorar</li>
+                                    <li><strong>14:30:</strong> Regreso a Aguas Calientes</li>
+                                    <li><strong>20:00:</strong> Llegada a Cusco</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Pregunta 8 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Podemos subir al Huayna Picchu o Montaña?</h4>
+                                    <p>Opciones de trekking adicional</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Estas son opciones adicionales con costo extra:</p>
+                                <ul>
+                                    <li><strong>Huayna Picchu:</strong> 400 cupos/día, reservar con 4-6 meses anticipación</li>
+                                    <li><strong>Montaña Machu Picchu:</strong> 800 cupos/día, menos demanda</li>
+                                    <li><strong>Dificultad:</strong> Media-alta, requiere buen estado físico</li>
+                                    <li><strong>Duración:</strong> 2-4 horas adicionales</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grupo 4: Clima y Altura -->
+                <div class="faq-group" data-category="clima">
+                    <h3 class="group-title">
+                        <i class="fas fa-cloud-sun"></i>
+                        <span>Clima y Condiciones</span>
+                    </h3>
+                    
+                    <div class="faq-items">
+                        <!-- Pregunta 9 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Cuál es la mejor época para visitar?</h4>
+                                    <p>Temporadas y clima</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Cada temporada tiene sus ventajas:</p>
+                                <ul>
+                                    <li><strong>Temporada Seca (Abril-Octubre):</strong> Días soleados, poca lluvia, más turistas</li>
+                                    <li><strong>Temporada Lluviosa (Noviembre-Marzo):</strong> Menos turistas, vegetación verde, lluvias frecuentes</li>
+                                    <li><strong>Temperatura:</strong> 8°C - 20°C todo el año</li>
+                                    <li><strong>Recomendación:</strong> Mayo o Septiembre - buen clima y menos multitudes</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Pregunta 10 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Qué pasa si llueve el día del tour?</h4>
+                                    <p>Contingencias por clima</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Machu Picchu opera llueva o truene:</p>
+                                <ul>
+                                    <li><strong>Tour se realiza:</strong> Siempre que las condiciones sean seguras</li>
+                                    <li><strong>Equipamiento:</strong> Proveemos ponchos de lluvia</li>
+                                    <li><strong>Cancelación:</strong> Solo por cierre oficial del Ministerio de Cultura</li>
+                                    <li><strong>Alternativas:</strong> Tour del Valle Sagrado si se cancela tren</li>
+                                </ul>
+                                <p>La lluvia en Machu Picchu suele ser intermitente.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
-    <!-- CTA Final -->
-    <section class="destination-cta" id="contact">
-        <div class="destination-container">
-            <h2 class="cta-title">¿Listo para vivir esta aventura?</h2>
-            <p class="cta-description">
-                Reserva ahora y asegura tu lugar en esta experiencia transformadora. 
-                Cupos limitados disponibles.
-            </p>
-            
-            <div class="cta-buttons">
-                <a href="#pricing" class="cta-button primary">
-                    <i class="fas fa-calendar-alt"></i>
-                    <span>Ver Planes y Precios</span>
-                </a>
-                
-                <a href="https://wa.me/51987654321" target="_blank" class="cta-button secondary">
-                    <i class="fab fa-whatsapp"></i>
-                    <span>Consultar por WhatsApp</span>
-                </a>
+        
+        <!-- CTA adicional -->
+        <div class="faq-cta">
+            <div class="cta-content">
+                <h3><i class="fas fa-calendar-plus"></i> ¿Listo para vivir esta aventura?</h3>
+                <p>Reserva tu tour a Machu Picchu hoy y asegura tu lugar en esta maravilla del mundo.</p>
+                <div class="cta-actions">
+                    <a href="#booking" class="cta-btn primary">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Reservar Ahora</span>
+                    </a>
+                    <a href="#itinerary" class="cta-btn secondary">
+                        <i class="fas fa-map"></i>
+                        <span>Ver Itinerario</span>
+                    </a>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
                  <!-- Botón de WhatsApp Flotante -->
     <a href="https://wa.me/51987654321" class="whatsapp-float" target="_blank">
@@ -902,9 +1086,10 @@
  </footer>
 
     <!-- JavaScript -->
-    <script src="../js/destination.js"></script>
-    <script src="../js/floating-buttons.js"></script>
-    <script src="../js/navbar.js"></script>
-    <script src="../js/footer.js"></script>
+    <script src="../../assets/js/destination/destination.js"></script>
+    <script src="../../assets/js/destination/faq-machupicchu.js"></script>
+    <script src="../../assets/js/floating-buttons.js"></script>
+    <script src="../../assets/js/navbar.js"></script>
+    <script src="../../assets/js/footer.js"></script>
 </body>
 </html> 

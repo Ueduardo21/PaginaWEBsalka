@@ -11,12 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 2. Inicializar carrusel de galería
     initCarouselGallery();
-    
-    // 3. Inicializar FAQ
-    initFAQ();
-    
-    // 4. Inicializar reservas
-    initBooking();
+
     
     // 5. Efectos de scroll
     initScrollEffects();
@@ -26,6 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 7. Inicializar notificaciones
     initNotifications();
+    
+    // 8. Inicializar funcionalidades móviles
+    initMobileFeatures();
 });
 
 // ========== 1. CARGAR DATOS DEL DESTINO ==========
@@ -412,7 +410,9 @@ function initCarouselGallery() {
     
     // Limpiar intervalo al salir de la página
     window.addEventListener('beforeunload', () => {
-        clearInterval(autoScrollInterval);
+        if (autoScrollInterval) {
+            clearInterval(autoScrollInterval);
+        }
     });
     
     // Añadir estilos para el lightbox
@@ -520,259 +520,13 @@ function initCarouselGallery() {
     }
 }
 
-// ========== 3. FAQ INTERACTIVO ==========
-function initFAQ() {
-    console.log('❓ Inicializando FAQ...');
-    
-    // 1. Sistema de filtrado por categorías
-    initCategoryFilter();
-    
-    // 2. Acordeón de preguntas y respuestas
-    initFAQAccordion();
-    
-    // 3. Animaciones de scroll
-    initFAQScrollAnimations();
-    
-    // 4. Abrir primera pregunta por defecto
-    openFirstFAQ();
-}
-
-// ========== FILTRADO POR CATEGORÍAS ==========
-function initCategoryFilter() {
-    const categoryButtons = document.querySelectorAll('.category-btn');
-    const faqGroups = document.querySelectorAll('.faq-group');
-    
-    if (!categoryButtons.length || !faqGroups.length) {
-        console.log('⚠️ No se encontraron elementos de filtrado FAQ');
-        return;
-    }
-    
-    categoryButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const category = this.getAttribute('data-category');
-            
-            // Remover clase active de todos los botones
-            categoryButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Añadir clase active al botón clickeado
-            this.classList.add('active');
-            
-            // Ocultar todos los grupos FAQ
-            faqGroups.forEach(group => {
-                group.classList.remove('active');
-                group.style.display = 'none';
-            });
-            
-            // Mostrar el grupo correspondiente
-            if (category === 'all') {
-                faqGroups.forEach(group => {
-                    group.classList.add('active');
-                    setTimeout(() => {
-                        group.style.display = 'block';
-                    }, 10);
-                });
-            } else {
-                const targetGroup = document.querySelector(`.faq-group[data-category="${category}"]`);
-                if (targetGroup) {
-                    targetGroup.classList.add('active');
-                    setTimeout(() => {
-                        targetGroup.style.display = 'block';
-                    }, 10);
-                }
-            }
-            
-            // Scroll suave al inicio de las preguntas
-            setTimeout(() => {
-                const faqQuestions = document.querySelector('.faq-questions');
-                if (faqQuestions) {
-                    faqQuestions.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            }, 300);
-            
-            console.log(`📊 Filtro FAQ: ${category}`);
-        });
-    });
-}
-
-// ========== ACORDEÓN DE PREGUNTAS Y RESPUESTAS ==========
-function initFAQAccordion() {
-    const faqItems = document.querySelectorAll('.faq-item');
-    
-    if (!faqItems.length) {
-        console.log('⚠️ No se encontraron preguntas FAQ');
-        return;
-    }
-    
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        const answer = item.querySelector('.faq-answer');
-        
-        question.addEventListener('click', function() {
-            // Cerrar otros items abiertos en el mismo grupo
-            const parentGroup = item.closest('.faq-group');
-            const otherItems = parentGroup.querySelectorAll('.faq-item');
-            
-            otherItems.forEach(otherItem => {
-                if (otherItem !== item && otherItem.classList.contains('active')) {
-                    closeFAQItem(otherItem);
-                }
-            });
-            
-            // Alternar el item actual
-            if (item.classList.contains('active')) {
-                closeFAQItem(item);
-            } else {
-                openFAQItem(item);
-            }
-        });
-    });
-}
-
-function openFAQItem(item) {
-    const answer = item.querySelector('.faq-answer');
-    
-    item.classList.add('active');
-    
-    // Calcular la altura real del contenido
-    answer.style.maxHeight = answer.scrollHeight + 'px';
-    
-    console.log(`📊 FAQ abierto: ${item.querySelector('h4').textContent.substring(0, 50)}...`);
-}
-
-function closeFAQItem(item) {
-    const answer = item.querySelector('.faq-answer');
-    
-    item.classList.remove('active');
-    answer.style.maxHeight = '0';
-}
-
-// ========== ANIMACIONES DE SCROLL FAQ ==========
-function initFAQScrollAnimations() {
-    const faqSection = document.querySelector('.faq-section');
-    
-    if (!faqSection) return;
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                faqSection.classList.add('animated');
-                
-                // Animación escalonada para los items
-                const faqItems = entry.target.querySelectorAll('.faq-item');
-                faqItems.forEach((item, index) => {
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'translateY(0)';
-                    }, index * 100);
-                });
-                
-                observer.unobserve(faqSection);
-            }
-        });
-    }, {
-        threshold: 0.2,
-        rootMargin: '0px 0px -100px 0px'
-    });
-    
-    observer.observe(faqSection);
-    
-    // Preparar estado inicial de los items
-    const faqItems = faqSection.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(20px)';
-        item.style.transition = 'all 0.5s ease';
-    });
-}
-
-// ========== ABRIR PRIMERA PREGUNTA ==========
-function openFirstFAQ() {
-    setTimeout(() => {
-        const faqGroups = document.querySelectorAll('.faq-group.active');
-        faqGroups.forEach(group => {
-            const firstItem = group.querySelector('.faq-item');
-            if (firstItem && !firstItem.classList.contains('active')) {
-                openFAQItem(firstItem);
-            }
-        });
-    }, 500);
-}
-
-// ========== 4. SISTEMA DE RESERVAS ==========
-function initBooking() {
-    const bookButtons = document.querySelectorAll('.book-button');
-    
-    bookButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const planName = this.closest('.pricing-card').querySelector('.plan-name').textContent;
-            const price = this.closest('.pricing-card').querySelector('.price-amount').textContent;
-            const destination = document.querySelector('.destination-hero-title').textContent;
-            
-            // Guardar datos de reserva
-            const bookingData = {
-                destination: destination,
-                plan: planName,
-                price: price,
-                date: new Date().toISOString(),
-                userEmail: localStorage.getItem('userEmail') || null
-            };
-            
-            localStorage.setItem('pendingBooking', JSON.stringify(bookingData));
-            
-            // Redirigir a la página de reserva
-            window.location.href = '../reserva.html?destination=' + 
-                                   encodeURIComponent(destination) +
-                                   '&plan=' + encodeURIComponent(planName) +
-                                   '&price=' + encodeURIComponent(price);
-            
-            // Track de intento de reserva
-            trackBookingAttempt(destination, planName, price);
-        });
-    });
-    
-    // Formulario de consulta (si existe)
-    const inquiryForm = document.getElementById('inquiryForm');
-    if (inquiryForm) {
-        inquiryForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const inquiryData = {
-                destination: document.querySelector('.destination-hero-title').textContent,
-                name: formData.get('name'),
-                email: formData.get('email'),
-                date: formData.get('date'),
-                people: formData.get('people'),
-                message: formData.get('message'),
-                timestamp: new Date().toISOString()
-            };
-            
-            // Guardar en localStorage
-            const inquiries = JSON.parse(localStorage.getItem('destinationInquiries') || '[]');
-            inquiries.push(inquiryData);
-            localStorage.setItem('destinationInquiries', JSON.stringify(inquiries));
-            
-            // Mostrar confirmación
-            showNotification('Consulta enviada con éxito. Nos pondremos en contacto contigo pronto.', 'success');
-            
-            // Resetear formulario
-            this.reset();
-            
-            // Track de consulta
-            trackInquiry(inquiryData);
-        });
-    }
-}
 
 // ========== 5. EFECTOS DE SCROLL ==========
 function initScrollEffects() {
     // Header fijo con efecto de scroll
     const header = document.querySelector('.destination-header');
+    if (!header) return;
+    
     let lastScroll = 0;
     
     window.addEventListener('scroll', () => {
@@ -919,6 +673,40 @@ function initNotifications() {
     }
 }
 
+// ========== 8. FUNCIONALIDADES MÓVILES ==========
+function initMobileFeatures() {
+    console.log('📱 Inicializando funcionalidades móviles...');
+    
+    // Detectar si es móvil
+    function isMobile() {
+        return window.innerWidth <= 768;
+    }
+    
+    // Cambiar el texto de hover instruction para móvil
+    function adjustMobileInstructions() {
+        if (isMobile()) {
+            const hoverInstruction = document.getElementById('hoverInstruction');
+            if (hoverInstruction) {
+                hoverInstruction.textContent = "Desliza para explorar";
+                hoverInstruction.classList.add('show');
+                
+                // Ocultar después de 5 segundos
+                setTimeout(() => {
+                    hoverInstruction.classList.remove('show');
+                }, 5000);
+            }
+        }
+    }
+    
+    // Inicializar
+    adjustMobileInstructions();
+    
+    // Recalcular en redimensionamiento
+    window.addEventListener('resize', function() {
+        adjustMobileInstructions();
+    });
+}
+
 // ========== FUNCIONES DE TRACKING ==========
 function trackPageView(destinationId) {
     const pageView = {
@@ -1016,28 +804,64 @@ window.destinationPage = {
     carousel: {
         play: function() {
             const event = new Event('mouseleave');
-            document.getElementById('carouselTrack').dispatchEvent(event);
+            const track = document.getElementById('carouselTrack');
+            if (track) track.dispatchEvent(event);
         },
         
         pause: function() {
             const event = new Event('mouseenter');
-            document.getElementById('carouselTrack').dispatchEvent(event);
+            const track = document.getElementById('carouselTrack');
+            if (track) track.dispatchEvent(event);
         },
         
         next: function() {
             const slides = document.querySelectorAll('.carousel-slide:not(.clone)');
-            const currentPosition = parseFloat(document.getElementById('carouselTrack').style.transform.replace('translateX(', '').replace('px)', '')) || 0;
-            const slideWidth = slides[0] ? slides[0].offsetWidth + 20 : 0;
+            const track = document.getElementById('carouselTrack');
+            if (!track || !slides.length) return;
             
-            document.getElementById('carouselTrack').style.transform = `translateX(${currentPosition - slideWidth}px)`;
+            const currentPosition = parseFloat(track.style.transform.replace('translateX(', '').replace('px)', '')) || 0;
+            const slideWidth = slides[0].offsetWidth + 20;
+            
+            track.style.transform = `translateX(${currentPosition - slideWidth}px)`;
         },
         
         prev: function() {
             const slides = document.querySelectorAll('.carousel-slide:not(.clone)');
-            const currentPosition = parseFloat(document.getElementById('carouselTrack').style.transform.replace('translateX(', '').replace('px)', '')) || 0;
-            const slideWidth = slides[0] ? slides[0].offsetWidth + 20 : 0;
+            const track = document.getElementById('carouselTrack');
+            if (!track || !slides.length) return;
             
-            document.getElementById('carouselTrack').style.transform = `translateX(${currentPosition + slideWidth}px)`;
+            const currentPosition = parseFloat(track.style.transform.replace('translateX(', '').replace('px)', '')) || 0;
+            const slideWidth = slides[0].offsetWidth + 20;
+            
+            track.style.transform = `translateX(${currentPosition + slideWidth}px)`;
+        }
+    },
+    
+    // Controlar FAQ
+    faq: {
+        filterByCategory: function(category) {
+            const button = document.querySelector(`.category-btn[data-category="${category}"]`);
+            if (button) {
+                button.click();
+            }
+        },
+        
+        openAll: function() {
+            const items = document.querySelectorAll('.faq-item');
+            items.forEach(item => {
+                if (!item.classList.contains('active')) {
+                    openFAQItem(item);
+                }
+            });
+        },
+        
+        closeAll: function() {
+            closeAllFAQItems();
+        },
+        
+        getActiveCategory: function() {
+            const activeButton = document.querySelector('.category-btn.active');
+            return activeButton ? activeButton.getAttribute('data-category') : 'all';
         }
     },
     
@@ -1071,95 +895,3 @@ window.destinationPage = {
 };
 
 console.log('✅ JavaScript de destino cargado completamente');
-// Detectar si es móvil y ajustar comportamiento
-function isMobile() {
-    return window.innerWidth <= 768;
-}
-
-// Pausar carrusel automático en móvil
-let carouselInterval;
-
-function startCarousel() {
-    if (isMobile()) {
-        // En móvil, no usar carrusel automático
-        clearInterval(carouselInterval);
-        return;
-    }
-    
-    // Tu código de carrusel automático aquí
-    // carouselInterval = setInterval(() => { ... }, 3000);
-}
-
-// Hacer el carrusel arrastrable en móvil
-function makeCarouselDraggable() {
-    if (!isMobile()) return;
-    
-    const track = document.getElementById('carouselTrack');
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-    
-    track.addEventListener('mousedown', (e) => {
-        isDown = true;
-        track.classList.add('active');
-        startX = e.pageX - track.offsetLeft;
-        scrollLeft = track.scrollLeft;
-    });
-    
-    track.addEventListener('mouseleave', () => {
-        isDown = false;
-        track.classList.remove('active');
-    });
-    
-    track.addEventListener('mouseup', () => {
-        isDown = false;
-        track.classList.remove('active');
-    });
-    
-    track.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - track.offsetLeft;
-        const walk = (x - startX) * 2;
-        track.scrollLeft = scrollLeft - walk;
-    });
-    
-    // Soporte táctil
-    track.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].pageX - track.offsetLeft;
-        scrollLeft = track.scrollLeft;
-    });
-    
-    track.addEventListener('touchmove', (e) => {
-        e.preventDefault();
-        const x = e.touches[0].pageX - track.offsetLeft;
-        const walk = (x - startX) * 2;
-        track.scrollLeft = scrollLeft - walk;
-    });
-}
-
-// Inicializar cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', function() {
-    startCarousel();
-    makeCarouselDraggable();
-    
-    // Recalcular en redimensionamiento
-    window.addEventListener('resize', function() {
-        startCarousel();
-        makeCarouselDraggable();
-    });
-});
-
-// Cambiar el texto de hover instruction para móvil
-if (isMobile()) {
-    const hoverInstruction = document.getElementById('hoverInstruction');
-    if (hoverInstruction) {
-        hoverInstruction.textContent = "Desliza para explorar";
-        hoverInstruction.classList.add('show');
-        
-        // Ocultar después de 5 segundos
-        setTimeout(() => {
-            hoverInstruction.classList.remove('show');
-        }, 5000);
-    }
-}

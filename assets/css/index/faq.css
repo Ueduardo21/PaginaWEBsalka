@@ -2,6 +2,16 @@
    FAQ SECTION - AVENTURA TRAVEL
    ============================================ */
 
+   /* Mostrar grupos activos por defecto */
+.faq-group.active {
+    display: block;
+}
+
+/* Ocultar grupos inactivos */
+.faq-group:not(.active) {
+    display: none;
+}
+
 /* Variables */
 :root {
     --faq-primary: #1a535c;
@@ -612,3 +622,44 @@
         grid-template-columns: 1fr;
     }
 }
+/* Transiciones suaves para el acordeón */
+.faq-answer {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+/* Animación para items FAQ */
+.faq-item {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estado inicial para respuestas */
+.faq-answer:not(.active) {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* Mejora para la visualización móvil */
+@media (max-width: 768px) {
+    .faq-questions {
+        width: 100%;
+        overflow: hidden;
+    }
+    
+    .faq-group {
+        width: 100%;
+    }
+}
+

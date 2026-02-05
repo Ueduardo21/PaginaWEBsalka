@@ -111,7 +111,7 @@
 
 /* ===== VIDEO FALLBACK IMAGE ===== */
 .video-thumbnail {
-    background-image: url('../imagenes/machupicchufondo.jpeg');
+    background-image: url('../../imagenes/machupicchufondo.jpeg');
     background-size: cover;
     background-position: center;
     background-blend-mode: overlay;

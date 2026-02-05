@@ -6,10 +6,11 @@
     <title>Lago Titicaca - Aventura Travel</title>
     
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/destination.css">
-    <link rel="stylesheet" href="../css/floating-buttons.css">
-    <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../../assets/css/destination/destination.css">
+    <link rel="stylesheet" href="../../assets/css/index/faq.css">
+    <link rel="stylesheet" href="../../assets/css/floating-buttons.css">
+    <link rel="stylesheet" href="../../assets/css/navbar.css">
+    <link rel="stylesheet" href="../../assets/css/footer.css">
     
     <!-- Fuentes -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;800&display=swap" rel="stylesheet">
@@ -27,7 +28,7 @@
         <div class="logo">
             <a href="../index.html">
                 <!-- Tu logo aquí - Solo imagen -->
-                <img src="../imagenes/logo.png" alt="SALKANY Trek & Expedition" class="logo-img">
+                <img src="../../assets/imagenes/logo.png" alt="SALKANY Trek & Expedition" class="logo-img">
             </a>
         </div>
         
@@ -160,7 +161,7 @@
                 
                 <div class="image-column">
                     <img src="../imagenes/lagotiticaca-about.jpg" alt="Islas flotantes de los Uros"
-                         onerror="this.src='https://images.unsplash.com/photo-1589391886085-8b6b0ac72a1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                         onerror="this.src='https://media.istockphoto.com/id/464413024/es/foto/lago-titicaca-bolivia.jpg?s=612x612&w=0&k=20&c=cazIMjqD9DGM711nX3gmYOOAcIpfht0xsPth2aNEC88='">
                 </div>
             </div>
         </div>
@@ -395,18 +396,6 @@
         <div class="carousel-info">
             <p><strong>Galería interactiva:</strong> Explora la belleza del Lago Titicaca a través de estas fotografías. Pasa el cursor sobre cualquier imagen para detener el carrusel y descubrir detalles sobre la cultura, paisajes y tradiciones del lago más alto del mundo.</p>
         </div>
-        
-        <!-- Indicadores del carrusel (opcional) -->
-        <div class="carousel-indicators">
-            <div class="carousel-indicator active" data-index="0"></div>
-            <div class="carousel-indicator" data-index="1"></div>
-            <div class="carousel-indicator" data-index="2"></div>
-            <div class="carousel-indicator" data-index="3"></div>
-            <div class="carousel-indicator" data-index="4"></div>
-            <div class="carousel-indicator" data-index="5"></div>
-            <div class="carousel-indicator" data-index="6"></div>
-            <div class="carousel-indicator" data-index="7"></div>
-        </div>
     </div>
 </section>
 
@@ -541,19 +530,19 @@
         </div>
     </section>
 
-    <!-- FAQ - Versión del index.html -->
-<section class="faq-section" id="faq">
+<!-- ========== FAQ SECTION LAGO TITICACA ========== -->
+<section class="faq-section" id="titicaca-faq">
     <div class="faq-container">
         <!-- Encabezado de la sección -->
         <div class="faq-header">
-            <span class="section-subtitle">¿Tienes dudas sobre el Lago Titicaca?</span>
+            <span class="section-subtitle">¿Planificando tu viaje?</span>
             <h2 class="section-title">
-                <span class="title-line">Preguntas</span>
-                <span class="title-line accent">Frecuentes</span>
+                <span class="title-line">Lago Titicaca</span>
+                <span class="title-line accent">Preguntas Frecuentes</span>
             </h2>
             <p class="section-description">
-                Resolvemos las inquietudes más comunes sobre las Islas Flotantes de los Uros para que 
-                puedas planificar tu aventura en el lago navegable más alto del mundo.
+                Resolvemos todas tus dudas sobre el tour al Lago Titicaca para que disfrutes 
+                del lago navegable más alto del mundo sin preocupaciones.
             </p>
         </div>
         
@@ -563,45 +552,51 @@
             <div class="faq-categories">
                 <div class="categories-header">
                     <h3><i class="fas fa-filter"></i> Categorías</h3>
-                    <p>Filtra por tema de tu interés</p>
+                    <p>Filtra por tema de interés</p>
                 </div>
                 
                 <div class="categories-list">
                     <button class="category-btn active" data-category="all">
-                        <i class="fas fa-globe-americas"></i>
+                        <i class="fas fa-water"></i>
                         <span>Todas las preguntas</span>
-                        <span class="category-count">4</span>
+                        <span class="category-count">10</span>
                     </button>
                     
-                    <button class="category-btn" data-category="preparation">
+                    <button class="category-btn" data-category="reservas">
+                        <i class="fas fa-ticket-alt"></i>
+                        <span>Entradas y Reservas</span>
+                        <span class="category-count">3</span>
+                    </button>
+                    
+                    <button class="category-btn" data-category="preparacion">
                         <i class="fas fa-suitcase"></i>
                         <span>Preparación</span>
+                        <span class="category-count">3</span>
+                    </button>
+                    
+                    <button class="category-btn" data-category="tour">
+                        <i class="fas fa-ship"></i>
+                        <span>Durante el Tour</span>
                         <span class="category-count">2</span>
                     </button>
                     
-                    <button class="category-btn" data-category="safety">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Seguridad</span>
-                        <span class="category-count">1</span>
-                    </button>
-                    
-                    <button class="category-btn" data-category="food">
-                        <i class="fas fa-utensils"></i>
-                        <span>Alimentación</span>
-                        <span class="category-count">1</span>
+                    <button class="category-btn" data-category="clima">
+                        <i class="fas fa-temperature-high"></i>
+                        <span>Clima y Altura</span>
+                        <span class="category-count">2</span>
                     </button>
                 </div>
                 
                 <!-- Contacto rápido -->
                 <div class="quick-contact">
-                    <h4><i class="fas fa-question-circle"></i> ¿No encuentras tu respuesta?</h4>
-                    <p>Estamos aquí para ayudarte</p>
+                    <h4><i class="fas fa-question-circle"></i> ¿Necesitas ayuda?</h4>
+                    <p>Especialistas en Lago Titicaca</p>
                     <div class="contact-options">
-                        <a href="https://wa.me/51987654321" class="contact-option whatsapp" target="_blank">
+                        <a href="https://wa.me/51987654322" class="contact-option whatsapp" target="_blank">
                             <i class="fab fa-whatsapp"></i>
                             <span>WhatsApp</span>
                         </a>
-                        <a href="mailto:info@aventuratravel.com" class="contact-option email">
+                        <a href="mailto:titicaca@aventuratravel.com" class="contact-option email">
                             <i class="fas fa-envelope"></i>
                             <span>Email</span>
                         </a>
@@ -611,110 +606,302 @@
             
             <!-- Columna derecha - Preguntas y respuestas -->
             <div class="faq-questions">
-                <!-- Grupo: Todas las preguntas -->
-                <div class="faq-group active" data-category="all">
+                <!-- Grupo 1: Entradas y Reservas -->
+                <div class="faq-group visible" data-category="reservas">
                     <h3 class="group-title">
-                        <i class="fas fa-globe-americas"></i>
-                        <span>Preguntas sobre el Lago Titicaca</span>
+                        <i class="fas fa-ticket-alt"></i>
+                        <span>Entradas y Reservas</span>
                     </h3>
                     
                     <div class="faq-items">
-                        <!-- FAQ 1 -->
-                        <div class="faq-item" data-category="preparation">
+                        <!-- Pregunta 1 -->
+                        <div class="faq-item">
                             <div class="faq-question">
                                 <div class="question-content">
-                                    <h4>¿Cómo es la aclimatación a la altura?</h4>
-                                    <p>Preparación para la altura en Puno</p>
+                                    <h4>¿Con cuánta anticipación debo reservar el tour?</h4>
+                                    <p>Tiempo de reserva recomendado</p>
                                 </div>
                                 <span class="faq-toggle">
                                     <i class="fas fa-chevron-down"></i>
                                 </span>
                             </div>
                             <div class="faq-answer">
-                                <p>Recomendamos llegar a Puno 1 día antes para aclimatación. Proveemos té de coca 
-                                y oxígeno portátil si es necesario. La mayoría se adapta bien con descanso e hidratación.</p>
+                                <p>Recomendaciones para reservar tu tour al Lago Titicaca:</p>
+                                <ul>
+                                    <li><strong>Mínimo 1 mes:</strong> Para temporada alta (junio-agosto y festivos)</li>
+                                    <li><strong>Al menos 2 semanas:</strong> Para temporada media</li>
+                                    <li><strong>1 semana:</strong> Para temporada baja</li>
+                                </ul>
+                                <p><strong>Importante:</strong> Los tours que incluyen pernocta en las islas flotantes 
+                                tienen disponibilidad limitada y requieren más anticipación.</p>
                             </div>
                         </div>
                         
-                        <!-- FAQ 2 -->
-                        <div class="faq-item" data-category="safety">
+                        <!-- Pregunta 2 -->
+                        <div class="faq-item">
                             <div class="faq-question">
                                 <div class="question-content">
-                                    <h4>¿Son seguras las islas flotantes?</h4>
-                                    <p>Seguridad en las islas de totora</p>
+                                    <h4>¿Qué incluye el tour al Lago Titicaca?</h4>
+                                    <p>Detalles del paquete completo</p>
                                 </div>
                                 <span class="faq-toggle">
                                     <i class="fas fa-chevron-down"></i>
                                 </span>
                             </div>
                             <div class="faq-answer">
-                                <p>Totalmente seguras. Las islas tienen capas de totora que se renuevan constantemente. 
-                                Los botes tienen chalecos salvavidas y nuestros guías están entrenados en primeros auxilios.</p>
+                                <p>Nuestro tour completo de 2 días/1 noche incluye:</p>
+                                <ul>
+                                    <li><strong>Transporte:</strong> Bus turístico Puno - Puerto Lacustre ida y vuelta</li>
+                                    <li><strong>Lancha:</strong> Privada con chalecos salvavidas y seguro</li>
+                                    <li><strong>Guía:</strong> Oficial bilingüe (español/inglés)</li>
+                                    <li><strong>Entradas:</strong> A las islas de los Uros y Taquile</li>
+                                    <li><strong>Alojamiento:</strong> Noche en familia en isla Taquile (opcional hotel en Puno)</li>
+                                    <li><strong>Alimentación:</strong> 3 comidas tradicionales</li>
+                                </ul>
                             </div>
                         </div>
                         
-                        <!-- FAQ 3 -->
-                        <div class="faq-item" data-category="preparation">
+                        <!-- Pregunta 3 -->
+                        <div class="faq-item">
                             <div class="faq-question">
                                 <div class="question-content">
-                                    <h4>¿Qué ropa debo llevar?</h4>
-                                    <p>Lista de equipaje recomendada</p>
+                                    <h4>¿Se puede hacer tour de un solo día?</h4>
+                                    <p>Opciones de tour express</p>
                                 </div>
                                 <span class="faq-toggle">
                                     <i class="fas fa-chevron-down"></i>
                                 </span>
                             </div>
                             <div class="faq-answer">
-                                <p>Ropa abrigada (capas), protector solar fuerte, gorro para el sol y frío, lentes de sol, 
-                                zapatos cómodos y cámara. Las noches son frías incluso en verano.</p>
+                                <p>Sí, ofrecemos dos opciones de tour de un día:</p>
+                                <ul>
+                                    <li><strong>Tour Express Uros (½ día):</strong> Solo visita a las islas flotantes de los Uros - 4 horas</li>
+                                    <li><strong>Tour Completo Uros + Taquile (día completo):</strong> Visita ambas islas - 8 horas</li>
+                                </ul>
+                                <p><strong>Recomendación:</strong> Si tienes tiempo, el tour de 2 días permite vivir la experiencia 
+                                completa con pernocta en la isla y ver el amanecer en el lago.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grupo 2: Preparación -->
+                <div class="faq-group visible" data-category="preparacion">
+                    <h3 class="group-title">
+                        <i class="fas fa-suitcase"></i>
+                        <span>Preparación para el Tour</span>
+                    </h3>
+                    
+                    <div class="faq-items">
+                        <!-- Pregunta 4 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Qué debo llevar al tour del Lago Titicaca?</h4>
+                                    <p>Lista de equipaje específica</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Esenciales para el Lago Titicaca:</p>
+                                <ul>
+                                    <li><strong>Documentos:</strong> Pasaporte o DNI original</li>
+                                    <li><strong>Protección solar:</strong> SPF 50+ (la radiación UV es muy fuerte a esta altura)</li>
+                                    <li><strong>Ropa abrigadora:</strong> Gorro, guantes, bufanda, varias capas</li>
+                                    <li><strong>Impermeable:</strong> Poncho o chaqueta impermeable</li>
+                                    <li><strong>Calzado:</strong> Zapatos cómodos para caminar en las islas</li>
+                                    <li><strong>Medicinas:</strong> Para el mal de altura (sorojchi pills)</li>
+                                </ul>
                             </div>
                         </div>
                         
-                        <!-- FAQ 4 -->
-                        <div class="faq-item" data-category="food">
+                        <!-- Pregunta 5 -->
+                        <div class="faq-item">
                             <div class="faq-question">
                                 <div class="question-content">
-                                    <h4>¿Hay opciones vegetarianas/veganas?</h4>
-                                    <p>Alimentación en las islas</p>
+                                    <h4>¿Hay restricciones de edad o condición física?</h4>
+                                    <p>Requisitos para el tour</p>
                                 </div>
                                 <span class="faq-toggle">
                                     <i class="fas fa-chevron-down"></i>
                                 </span>
                             </div>
                             <div class="faq-answer">
-                                <p>Sí, la cocina andina tiene muchas opciones con quinua, papas nativas y vegetales. 
-                                Avísanos con anticipación para preparar menús especiales.</p>
+                                <p>El tour tiene algunas consideraciones importantes:</p>
+                                <ul>
+                                    <li><strong>Altura:</strong> 3,812 msnm - Requiere aclimatación previa</li>
+                                    <li><strong>Caminatas:</strong> En Taquile hay subidas considerables</li>
+                                    <li><strong>Edad:</strong> Sin restricción, pero niños menores de 8 años necesitan evaluación</li>
+                                    <li><strong>Embarazo:</strong> No recomendado después del 5° mes</li>
+                                    <li><strong>Movilidad reducida:</strong> Las islas tienen terrenos irregulares</li>
+                                </ul>
+                                <p><strong>Nota:</strong> Consultar con médico si tienes problemas cardíacos o respiratorios.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Pregunta 6 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Qué tipo de alojamiento hay en las islas?</h4>
+                                    <p>Opciones de hospedaje</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Ofrecemos dos tipos de alojamiento:</p>
+                                <ul>
+                                    <li><strong>Hospedaje en familia (Recomendado):</strong> Casa familiar en Taquile, habitación básica pero cómoda, baño compartido, experiencia cultural auténtica</li>
+                                    <li><strong>Hotel en Puno:</strong> Regreso a Puno al final del día, mayor comodidad, menos experiencia cultural</li>
+                                </ul>
+                                <p><strong>Ventajas del hospedaje en familia:</strong> Cena tradicional, velada cultural, oportunidad de aprender sobre la vida en la isla, amanecer espectacular.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grupo 3: Durante el Tour -->
+                <div class="faq-group visible" data-category="tour">
+                    <h3 class="group-title">
+                        <i class="fas fa-ship"></i>
+                        <span>Durante el Tour</span>
+                    </h3>
+                    
+                    <div class="faq-items">
+                        <!-- Pregunta 7 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Cuál es el itinerario típico del tour?</h4>
+                                    <p>Cronograma detallado</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p><strong>Tour de 2 días / 1 noche:</strong></p>
+                                <ul>
+                                    <li><strong>Día 1 (7:00 AM):</strong> Recojo del hotel en Puno</li>
+                                    <li><strong>Día 1 (8:00 AM):</strong> Salida en lancha a las islas de los Uros</li>
+                                    <li><strong>Día 1 (9:00 - 11:00):</strong> Visita y demostración en islas flotantes</li>
+                                    <li><strong>Día 1 (11:30 - 13:00):</strong> Navegación a Taquile (2.5 horas)</li>
+                                    <li><strong>Día 1 (13:00 - 17:00):</strong> Almuerzo y visita a la isla</li>
+                                    <li><strong>Día 1 (18:00):</strong> Cena y alojamiento en familia</li>
+                                    <li><strong>Día 2 (8:00 AM):</strong> Desayuno y regreso a Puno</li>
+                                    <li><strong>Día 2 (12:00 PM):</strong> Llegada a Puno</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Pregunta 8 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Se puede interactuar con las comunidades locales?</h4>
+                                    <p>Experiencia cultural</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>¡Absolutamente! El tour incluye varias interacciones:</p>
+                                <ul>
+                                    <li><strong>Islas Uros:</strong> Demostración de construcción de islas, paseo en balsa de totora</li>
+                                    <li><strong>Taquile:</strong> Visita a talleres textiles, explicación del significado de los tejidos</li>
+                                    <li><strong>Hospedaje en familia:</strong> Participación en preparación de comida, conversación con anfitriones</li>
+                                    <li><strong>Actividades opcionales:</strong> Pesca tradicional, tejido, agricultura andina</li>
+                                </ul>
+                                <p><strong>Recomendación:</strong> Lleva pequeños regalos como frutas, útiles escolares o productos 
+                                de higiene para las familias anfitrionas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grupo 4: Clima y Altura -->
+                <div class="faq-group visible" data-category="clima">
+                    <h3 class="group-title">
+                        <i class="fas fa-temperature-high"></i>
+                        <span>Clima y Altura</span>
+                    </h3>
+                    
+                    <div class="faq-items">
+                        <!-- Pregunta 9 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Cómo afecta la altura del Lago Titicaca?</h4>
+                                    <p>Consejos para el soroche (mal de altura)</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>El Lago Titicaca está a 3,812 msnm. Recomendaciones:</p>
+                                <ul>
+                                    <li><strong>Aclimatación:</strong> Llegar a Puno 1-2 días antes del tour</li>
+                                    <li><strong>Hidratación:</strong> Beber 4-5 litros de agua diarios (sin alcohol)</li>
+                                    <li><strong>Alimentación:</strong> Comidas ligeras, ricas en carbohidratos</li>
+                                    <li><strong>Medicación:</strong> Sorojchi pills o Diamox (consultar con médico)</li>
+                                    <li><strong>Mate de coca:</strong> Infusión tradicional que ayuda con la altura</li>
+                                    <li><strong>Oxígeno:</strong> Nuestras lanchas llevan botellas de oxígeno de emergencia</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Pregunta 10 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Cuál es la mejor época para visitar?</h4>
+                                    <p>Temporadas y condiciones climáticas</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Cada temporada tiene características únicas:</p>
+                                <ul>
+                                    <li><strong>Temporada Seca (Abril-Octubre):</strong> Días soleados, noches frías (hasta -5°C), poca lluvia, mejor visibilidad</li>
+                                    <li><strong>Temporada Lluviosa (Noviembre-Marzo):</strong> Más verde, temperaturas más moderadas, lluvias frecuentes por la tarde</li>
+                                    <li><strong>Temperatura promedio:</strong> Día: 15-18°C / Noche: 0-5°C</li>
+                                    <li><strong>Recomendación:</strong> Mayo a Septiembre - clima más estable</li>
+                                </ul>
+                                <p><strong>Nota:</strong> En temporada de lluvias, los tours pueden modificarse por seguridad.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
-    <!-- CTA Final -->
-    <section class="destination-cta" id="contact">
-        <div class="destination-container">
-            <h2 class="cta-title">¿Listo para flotar en el cielo?</h2>
-            <p class="cta-description">
-                Reserva tu aventura en el lago sagrado y vive una experiencia cultural 
-                que te conectará con las raíces andinas.
-            </p>
-            
-            <div class="cta-buttons">
-                <a href="#pricing" class="cta-button primary">
-                    <i class="fas fa-calendar-alt"></i>
-                    <span>Ver Planes y Precios</span>
-                </a>
-                
-                <a href="https://wa.me/51987654321" target="_blank" class="cta-button secondary">
-                    <i class="fab fa-whatsapp"></i>
-                    <span>Consultar por WhatsApp</span>
-                </a>
+        
+        <!-- CTA adicional -->
+        <div class="faq-cta">
+            <div class="cta-content">
+                <h3><i class="fas fa-compass"></i> ¿Listo para esta aventura única?</h3>
+                <p>Reserva tu tour al Lago Titicaca y vive la experiencia del lago navegable más alto del mundo.</p>
+                <div class="cta-actions">
+                    <a href="#booking-titicaca" class="cta-btn primary">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Reservar Tour</span>
+                    </a>
+                    <a href="#itinerario-titicaca" class="cta-btn secondary">
+                        <i class="fas fa-map"></i>
+                        <span>Ver Itinerario</span>
+                    </a>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
                  <!-- Botón de WhatsApp Flotante -->
     <a href="https://wa.me/51987654321" class="whatsapp-float" target="_blank">
@@ -890,9 +1077,10 @@
  </footer>
 
     <!-- JavaScript -->
-    <script src="../js/destination.js"></script>
-    <script src="../js/floating-buttons.js"></script>
-    <script src="../js/navbar.js"></script>
-    <script src="../js/footer.js"></script>
+    <script src="../../assets/js/destination/destination.js"></script>
+    <script src="../../assets/js/destination/faq-lagotiticaca.js"></script>
+    <script src="../../assets/js/floating-buttons.js"></script>
+    <script src="../../assets/js/navbar.js"></script>
+    <script src="../../assets/js/footer.js"></script>
 </body>
 </html>

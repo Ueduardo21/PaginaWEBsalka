@@ -6,10 +6,11 @@
     <title>Líneas de Nazca - Aventura Travel</title>
     
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/destination.css">
-    <link rel="stylesheet" href="../css/floating-buttons.css">
-    <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../../assets/css/destination/destination.css">
+    <link rel="stylesheet" href="../../assets/css/index/faq.css">
+    <link rel="stylesheet" href="../../assets/css/floating-buttons.css">
+    <link rel="stylesheet" href="../../assets/css/navbar.css">
+    <link rel="stylesheet" href="../../assets/css/footer.css">
     
     <!-- Fuentes -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;800&display=swap" rel="stylesheet">
@@ -27,7 +28,7 @@
         <div class="logo">
             <a href="../index.html">
                 <!-- Tu logo aquí - Solo imagen -->
-                <img src="../imagenes/logo.png" alt="SALKANY Trek & Expedition" class="logo-img">
+                <img src="../../assets/imagenes/logo.png" alt="SALKANY Trek & Expedition" class="logo-img">
             </a>
         </div>
         
@@ -161,7 +162,7 @@
                 
                 <div class="image-column">
                     <img src="../imagenes/lineasnazca-about.jpg" alt="Figura del Colibrí"
-                         onerror="this.src='https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                         onerror="this.src='https://wallpapers.com/images/hd/the-nazca-lines-patszl4qpslvwid9.jpg'">
                 </div>
             </div>
         </div>
@@ -396,18 +397,6 @@
         <div class="carousel-info">
             <p><strong>Galería interactiva:</strong> Descubre los misteriosos geoglifos de Nazca desde una perspectiva aérea. Pasa el cursor sobre cualquier imagen para detener el carrusel y ver detalles. El carrusel se reanudará automáticamente cuando retires el cursor.</p>
         </div>
-        
-        <!-- Indicadores del carrusel (opcional) -->
-        <div class="carousel-indicators">
-            <div class="carousel-indicator active" data-index="0"></div>
-            <div class="carousel-indicator" data-index="1"></div>
-            <div class="carousel-indicator" data-index="2"></div>
-            <div class="carousel-indicator" data-index="3"></div>
-            <div class="carousel-indicator" data-index="4"></div>
-            <div class="carousel-indicator" data-index="5"></div>
-            <div class="carousel-indicator" data-index="6"></div>
-            <div class="carousel-indicator" data-index="7"></div>
-        </div>
     </div>
 </section>
 
@@ -542,19 +531,19 @@
         </div>
     </section>
 
-   <!-- FAQ - Versión del index.html -->
-<section class="faq-section" id="faq">
+<!-- ========== FAQ SECTION LÍNEAS DE NAZCA ========== -->
+<section class="faq-section" id="nazca-faq">
     <div class="faq-container">
         <!-- Encabezado de la sección -->
         <div class="faq-header">
-            <span class="section-subtitle">¿Tienes dudas sobre las Líneas de Nazca?</span>
+            <span class="section-subtitle">¿Planificando tu viaje?</span>
             <h2 class="section-title">
-                <span class="title-line">Preguntas</span>
-                <span class="title-line accent">Frecuentes</span>
+                <span class="title-line">Líneas de Nazca</span>
+                <span class="title-line accent">Preguntas Frecuentes</span>
             </h2>
             <p class="section-description">
-                Resolvemos las inquietudes más comunes sobre los geoglifos misteriosos para que 
-                puedas vivir esta experiencia única con total seguridad y confianza.
+                Resolvemos todas tus dudas sobre el tour a las misteriosas Líneas de Nazca 
+                para que disfrutes de este enigma arqueológico sin preocupaciones.
             </p>
         </div>
         
@@ -564,45 +553,51 @@
             <div class="faq-categories">
                 <div class="categories-header">
                     <h3><i class="fas fa-filter"></i> Categorías</h3>
-                    <p>Filtra por tema de tu interés</p>
+                    <p>Filtra por tema de interés</p>
                 </div>
                 
                 <div class="categories-list">
                     <button class="category-btn active" data-category="all">
-                        <i class="fas fa-globe-americas"></i>
+                        <i class="fas fa-water"></i>
                         <span>Todas las preguntas</span>
-                        <span class="category-count">4</span>
+                        <span class="category-count">10</span>
                     </button>
                     
-                    <button class="category-btn" data-category="safety">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Seguridad</span>
+                    <button class="category-btn" data-category="vuelos">
+                        <i class="fas fa-plane"></i>
+                        <span>Vuelos y Reservas</span>
+                        <span class="category-count">3</span>
+                    </button>
+                    
+                    <button class="category-btn" data-category="preparacion">
+                        <i class="fas fa-sun"></i>
+                        <span>Preparación</span>
+                        <span class="category-count">3</span>
+                    </button>
+                    
+                    <button class="category-btn" data-category="experiencia">
+                        <i class="fas fa-binoculars"></i>
+                        <span>Experiencia</span>
                         <span class="category-count">2</span>
                     </button>
                     
-                    <button class="category-btn" data-category="preparation">
-                        <i class="fas fa-suitcase"></i>
-                        <span>Preparación</span>
-                        <span class="category-count">1</span>
-                    </button>
-                    
-                    <button class="category-btn" data-category="family">
-                        <i class="fas fa-users"></i>
-                        <span>Familia</span>
-                        <span class="category-count">1</span>
+                    <button class="category-btn" data-category="seguridad">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Seguridad</span>
+                        <span class="category-count">2</span>
                     </button>
                 </div>
                 
                 <!-- Contacto rápido -->
                 <div class="quick-contact">
-                    <h4><i class="fas fa-question-circle"></i> ¿No encuentras tu respuesta?</h4>
-                    <p>Estamos aquí para ayudarte</p>
+                    <h4><i class="fas fa-question-circle"></i> ¿Necesitas ayuda?</h4>
+                    <p>Especialistas en Líneas de Nazca</p>
                     <div class="contact-options">
-                        <a href="https://wa.me/51987654321" class="contact-option whatsapp" target="_blank">
+                        <a href="https://wa.me/51987654323" class="contact-option whatsapp" target="_blank">
                             <i class="fab fa-whatsapp"></i>
                             <span>WhatsApp</span>
                         </a>
-                        <a href="mailto:info@aventuratravel.com" class="contact-option email">
+                        <a href="mailto:nazca@aventuratravel.com" class="contact-option email">
                             <i class="fas fa-envelope"></i>
                             <span>Email</span>
                         </a>
@@ -612,112 +607,309 @@
             
             <!-- Columna derecha - Preguntas y respuestas -->
             <div class="faq-questions">
-                <!-- Grupo: Todas las preguntas -->
-                <div class="faq-group active" data-category="all">
+                <!-- Grupo 1: Vuelos y Reservas -->
+                <div class="faq-group visible" data-category="vuelos">
                     <h3 class="group-title">
-                        <i class="fas fa-globe-americas"></i>
-                        <span>Preguntas sobre las Líneas de Nazca</span>
+                        <i class="fas fa-plane"></i>
+                        <span>Vuelos y Reservas</span>
                     </h3>
                     
                     <div class="faq-items">
-                        <!-- FAQ 1 -->
-                        <div class="faq-item" data-category="safety">
+                        <!-- Pregunta 1 -->
+                        <div class="faq-item">
                             <div class="faq-question">
                                 <div class="question-content">
-                                    <h4>¿Es seguro el sobrevuelo en avioneta?</h4>
-                                    <p>Seguridad aérea en Nazca</p>
+                                    <h4>¿Con cuánta anticipación debo reservar el vuelo?</h4>
+                                    <p>Tiempo de reserva recomendado</p>
                                 </div>
                                 <span class="faq-toggle">
                                     <i class="fas fa-chevron-down"></i>
                                 </span>
                             </div>
                             <div class="faq-answer">
-                                <p>Totalmente seguro. Trabajamos con las mejores compañías aéreas con pilotos 
-                                experimentados y avionetas mantenidas regularmente. Todas cumplen normas 
-                                internacionales de seguridad.</p>
+                                <p>Recomendaciones para reservar tu vuelo sobre las Líneas:</p>
+                                <ul>
+                                    <li><strong>Mínimo 2 semanas:</strong> Para temporada alta (junio-agosto, diciembre-enero)</li>
+                                    <li><strong>Al menos 1 semana:</strong> Para temporada media</li>
+                                    <li><strong>3-4 días:</strong> Para temporada baja (posible, pero no garantizado)</li>
+                                </ul>
+                                <p><strong>Importante:</strong> Los vuelos se confirman según condiciones climáticas 
+                                y disponibilidad de aeronaves. Recomendamos flexibilidad en las fechas.</p>
                             </div>
                         </div>
                         
-                        <!-- FAQ 2 -->
-                        <div class="faq-item" data-category="preparation">
+                        <!-- Pregunta 2 -->
+                        <div class="faq-item">
                             <div class="faq-question">
                                 <div class="question-content">
-                                    <h4>¿Qué pasa si tengo miedo a las alturas o mareo?</h4>
-                                    <p>Preparación para el vuelo</p>
+                                    <h4>¿Qué incluye el tour de vuelo?</h4>
+                                    <p>Detalles del paquete completo</p>
                                 </div>
                                 <span class="faq-toggle">
                                     <i class="fas fa-chevron-down"></i>
                                 </span>
                             </div>
                             <div class="faq-answer">
-                                <p>Los vuelos son suaves y a baja altura (500-800 metros). Proveemos bolsas 
-                                para mareo y recomendamos no desayunar pesado. La mayoría se adapta bien. 
-                                También ofrecemos opción de tour terrestre con mirador.</p>
+                                <p>Nuestro tour completo incluye:</p>
+                                <ul>
+                                    <li><strong>Transporte:</strong> Recojo y regreso a hotel en Nazca/Ica/Lima (según opción)</li>
+                                    <li><strong>Vuelo:</strong> 30-40 minutos sobre las Líneas en avioneta Cessna</li>
+                                    <li><strong>Piloto:</strong> Experimentado y certificado bilingüe</li>
+                                    <li><strong>Briefing:</strong> Explicación previa al vuelo con mapa detallado</li>
+                                    <li><strong>Seguro:</strong> Seguro de vuelo incluido</li>
+                                    <li><strong>Certificado:</strong> Certificado de vuelo sobre las Líneas de Nazca</li>
+                                </ul>
                             </div>
                         </div>
                         
-                        <!-- FAQ 3 -->
-                        <div class="faq-item" data-category="safety">
+                        <!-- Pregunta 3 -->
+                        <div class="faq-item">
                             <div class="faq-question">
                                 <div class="question-content">
-                                    <h4>¿Cuál es la mejor hora para el sobrevuelo?</h4>
-                                    <p>Planificación del horario</p>
+                                    <h4>¿Cuánto cuesta el vuelo y hay opciones más económicas?</h4>
+                                    <p>Tarifas y alternativas</p>
                                 </div>
                                 <span class="faq-toggle">
                                     <i class="fas fa-chevron-down"></i>
                                 </span>
                             </div>
                             <div class="faq-answer">
-                                <p>Las primeras horas de la mañana (7-9 AM) son ideales por la luz y menor 
-                                turbulencia. También volamos hasta medio día. Evitamos tardes por vientos.</p>
+                                <p>Ofrecemos tres opciones de tour:</p>
+                                <ul>
+                                    <li><strong>Vuelo Estándar (30 min):</strong> USD $80 - Vuelo básico sobre las figuras principales</li>
+                                    <li><strong>Vuelo Premium (40 min):</strong> USD $120 - Más tiempo, todas las figuras + explicación detallada</li>
+                                    <li><strong>Tour Completo:</strong> USD $150 - Incluye vuelo + visita al Mirador + Museo Antonini</li>
+                                    <li><strong>Desde Lima:</strong> USD $350 - Incluye transporte ida y vuelta + vuelo</li>
+                                </ul>
+                                <p><strong>Nota:</strong> Los precios pueden variar según temporada y disponibilidad.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grupo 2: Preparación -->
+                <div class="faq-group visible" data-category="preparacion">
+                    <h3 class="group-title">
+                        <i class="fas fa-sun"></i>
+                        <span>Preparación para el Vuelo</span>
+                    </h3>
+                    
+                    <div class="faq-items">
+                        <!-- Pregunta 4 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Qué debo llevar para el vuelo?</h4>
+                                    <p>Lista de preparación</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Esenciales para el vuelo sobre las Líneas:</p>
+                                <ul>
+                                    <li><strong>Documentos:</strong> Pasaporte o DNI original (OBLIGATORIO para el registro)</li>
+                                    <li><strong>Ropa cómoda:</strong> Evitar vestidos o faldas, preferir pantalones</li>
+                                    <li><strong>Calzado:</strong> Zapatos cerrados y cómodos</li>
+                                    <li><strong>Protección:</strong> Lentes de sol polarizados (muy importante)</li>
+                                    <li><strong>Cámara:</strong> Con batería cargada y espacio en memoria</li>
+                                    <li><strong>Medicación:</strong> Pastillas para el mareo si es propenso</li>
+                                </ul>
                             </div>
                         </div>
                         
-                        <!-- FAQ 4 -->
-                        <div class="faq-item" data-category="family">
+                        <!-- Pregunta 5 -->
+                        <div class="faq-item">
                             <div class="faq-question">
                                 <div class="question-content">
-                                    <h4>¿Puedo llevar niños en el sobrevuelo?</h4>
-                                    <p>Viajes familiares</p>
+                                    <h4>¿Hay restricciones de peso o salud?</h4>
+                                    <p>Requisitos para volar</p>
                                 </div>
                                 <span class="faq-toggle">
                                     <i class="fas fa-chevron-down"></i>
                                 </span>
                             </div>
                             <div class="faq-answer">
-                                <p>Sí, niños desde 2 años pueden volar. Los menores de 12 pagan tarifa reducida. 
-                                Los asientos infantiles están disponibles. Recomendamos para niños mayores de 5 años.</p>
+                                <p>Sí, existen restricciones importantes:</p>
+                                <ul>
+                                    <li><strong>Peso máximo:</strong> 100 kg por persona (las avionetas son pequeñas)</li>
+                                    <li><strong>Edad mínima:</strong> 5 años (niños pagan tarifa completa)</li>
+                                    <li><strong>Embarazo:</strong> No permitido después del 3er mes</li>
+                                    <li><strong>Salud:</strong> No permitido para personas con problemas cardíacos graves</li>
+                                    <li><strong>Movilidad:</strong> Se requiere cierta agilidad para subir a la avioneta</li>
+                                    <li><strong>Operaciones recientes:</strong> Esperar mínimo 3 meses después de cirugías</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Pregunta 6 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Es mejor volar en la mañana o en la tarde?</h4>
+                                    <p>Mejor hora para el vuelo</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Ambas tienen ventajas:</p>
+                                <ul>
+                                    <li><strong>Mañana (7:00 - 10:00 AM):</strong> Menos turbulencia, mejor visibilidad, menos viento</li>
+                                    <li><strong>Tarde (3:00 - 5:00 PM):</strong> Mejores sombras que resaltan las figuras, menos gente</li>
+                                    <li><strong>Evitar medio día:</strong> 11:00 AM - 2:00 PM puede haber mucha turbulencia por calor</li>
+                                </ul>
+                                <p><strong>Nuestra recomendación:</strong> Vuelos entre 7:00-9:00 AM para mejor experiencia.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grupo 3: Experiencia -->
+                <div class="faq-group visible" data-category="experiencia">
+                    <h3 class="group-title">
+                        <i class="fas fa-binoculars"></i>
+                        <span>Experiencia del Vuelo</span>
+                    </h3>
+                    
+                    <div class="faq-items">
+                        <!-- Pregunta 7 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Qué figuras veré durante el vuelo?</h4>
+                                    <p>Geoglifos incluidos en el tour</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Durante el vuelo verás las figuras más famosas:</p>
+                                <ul>
+                                    <li><strong>El Colibrí:</strong> 96 metros de envergadura</li>
+                                    <li><strong>El Mono:</strong> 135 metros con cola en espiral</li>
+                                    <li><strong>La Araña:</strong> 46 metros de longitud</li>
+                                    <li><strong>El Cóndor:</strong> 135 metros de alas extendidas</li>
+                                    <li><strong>El Astronauta:</strong> La figura más misteriosa</li>
+                                    <li><strong>El Perro:</strong> 51 metros de largo</li>
+                                    <li><strong>El Árbol y Las Manos:</strong> Figuras cercanas entre sí</li>
+                                    <li><strong>La Ballena:</strong> 20 metros de largo</li>
+                                </ul>
+                                <p><strong>Nota:</strong> El piloto se inclina para que ambos lados de la avioneta puedan ver las figuras.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Pregunta 8 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Cuánto tiempo dura el vuelo y qué tan alto se vuela?</h4>
+                                    <p>Duración y altitud</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Detalles técnicos del vuelo:</p>
+                                <ul>
+                                    <li><strong>Duración:</strong> 30-40 minutos efectivos de vuelo sobre las Líneas</li>
+                                    <li><strong>Altitud:</strong> 500-600 metros sobre el desierto</li>
+                                    <li><strong>Distancia cubierta:</strong> Aproximadamente 80 km de vuelo</li>
+                                    <li><strong>Capacidad:</strong> 4-6 pasajeros por avioneta (dependiendo del peso)</li>
+                                    <li><strong>Inclinaciones:</strong> El avión se inclina 45° a cada lado para mejor visión</li>
+                                    <li><strong>Turbulencia:</strong> Normalmente suave, pero puede haber algunas sacudidas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grupo 4: Seguridad -->
+                <div class="faq-group visible" data-category="seguridad">
+                    <h3 class="group-title">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Seguridad y Condiciones</span>
+                    </h3>
+                    
+                    <div class="faq-items">
+                        <!-- Pregunta 9 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Es seguro volar sobre las Líneas de Nazca?</h4>
+                                    <p>Medidas de seguridad</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Implementamos múltiples medidas de seguridad:</p>
+                                <ul>
+                                    <li><strong>Aeronaves:</strong> Cessna 172 y 206 mantenidas rigurosamente</li>
+                                    <li><strong>Pilotos:</strong> Mínimo 5 años de experiencia en vuelos turísticos</li>
+                                    <li><strong>Certificaciones:</strong> Todas las aeronaves tienen certificación DGAC</li>
+                                    <li><strong>Meteorología:</strong> Monitoreo constante de condiciones climáticas</li>
+                                    <li><strong>Checklist:</strong> Verificación exhaustiva antes de cada vuelo</li>
+                                    <li><strong>Seguro:</strong> Póliza de seguro de vuelo para todos los pasajeros</li>
+                                    <li><strong>Comunicación:</strong> Radio permanente con torre de control</li>
+                                </ul>
+                                <p><strong>Estadística:</strong> Más de 15,000 vuelos seguros realizados.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Pregunta 10 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="question-content">
+                                    <h4>¿Qué pasa si el clima no permite volar?</h4>
+                                    <p>Política por mal tiempo</p>
+                                </div>
+                                <span class="faq-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Nuestra política por condiciones climáticas:</p>
+                                <ul>
+                                    <li><strong>Cancelación:</strong> Solo el piloto decide si las condiciones son seguras</li>
+                                    <li><strong>Reembolso:</strong> 100% del costo si cancelamos por clima</li>
+                                    <li><strong>Reprogramación:</strong> Sin costo adicional para nueva fecha</li>
+                                    <li><strong>Condiciones no favorables:</strong> Viento fuerte > 25 nudos, tormentas de arena, nubosidad baja</li>
+                                    <li><strong>Mejor época:</strong> Abril a diciembre (menos probabilidad de cancelación)</li>
+                                    <li><strong>Alternativas:</strong> Si no se puede volar, ofrecemos tour terrestre al Mirador + Museo</li>
+                                </ul>
+                                <p><strong>Recomendación:</strong> Programar flexibilidad en tu itinerario por posibles cambios.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
-    <!-- CTA Final -->
-    <section class="destination-cta" id="contact">
-        <div class="destination-container">
-            <h2 class="cta-title">¿Listo para descifrar el misterio?</h2>
-            <p class="cta-description">
-                Reserva tu vuelo sobre las líneas y sé testigo de uno de los mayores 
-                enigmas arqueológicos del mundo.
-            </p>
-            
-            <div class="cta-buttons">
-                <a href="#pricing" class="cta-button primary">
-                    <i class="fas fa-calendar-alt"></i>
-                    <span>Ver Planes y Precios</span>
-                </a>
-                
-                <a href="https://wa.me/51987654321" target="_blank" class="cta-button secondary">
-                    <i class="fab fa-whatsapp"></i>
-                    <span>Consultar por WhatsApp</span>
-                </a>
+        
+        <!-- CTA adicional -->
+        <div class="faq-cta">
+            <div class="cta-content">
+                <h3><i class="fas fa-plane-departure"></i> ¿Listo para descifrar el misterio?</h3>
+                <p>Reserva tu vuelo sobre las Líneas de Nazca y descubre uno de los mayores enigmas arqueológicos del mundo.</p>
+                <div class="cta-actions">
+                    <a href="#booking-nazca" class="cta-btn primary">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Reservar Vuelo</span>
+                    </a>
+                    <a href="#itinerario-nazca" class="cta-btn secondary">
+                        <i class="fas fa-map"></i>
+                        <span>Ver Figuras</span>
+                    </a>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
                  <!-- Botón de WhatsApp Flotante -->
     <a href="https://wa.me/51987654321" class="whatsapp-float" target="_blank">
@@ -892,9 +1084,10 @@
  </footer>
 
     <!-- JavaScript -->
-    <script src="../js/destination.js"></script>
-    <script src="../js/floating-buttons.js"></script>
-    <script src="../js/navbar.js"></script>
-    <script src="../js/footer.js"></script>
+    <script src="../../assets/js/destination/destination.js"></script>
+    <script src="../../assets/js/destination/faq-lineasnazca.js"></script>
+    <script src="../../assets/js/floating-buttons.js"></script>
+    <script src="../../assets/js/navbar.js"></script>
+    <script src="../../assets/js/footer.js"></script>
 </body>
 </html>
